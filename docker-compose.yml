@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:18.3
+    volumes:
+      - db:/var/lib/postgresql
+    ports:
+      - "${DB_PORT-5432}:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+
+volumes:
+  db:

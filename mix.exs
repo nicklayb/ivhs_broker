@@ -26,17 +26,17 @@ defmodule Caltar.MixProject do
 
   defp deps do
     [
-      {:bandit, "~> 1.5"},
-      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.14.0"},
-      {:credo, "~> 1.7.11", runtime: false, only: ~w(dev test)a},
-      {:ecto_sql, "~> 3.10"},
-      {:ecto_sqlite3, ">= 0.0.0"},
+      {:bandit, "~> 1.10.4"},
+      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.5"},
+      {:credo, "~> 1.7.18", runtime: false, only: ~w(dev test)a},
+      {:ecto_sql, "~> 3.13"},
+      {:postgrex, "~> 0.22"},
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
       {:gettext, "~> 0.26"},
+      {:plug, "~> 1.18", [optional: false]},
       {:jason, "~> 1.2"},
-      {:phoenix, "~> 1.7.19"},
-      {:phoenix_ecto, "~> 4.5"},
-      {:phoenix_live_view, "~> 1.0.4"},
+      {:phoenix, "~> 1.8.5"},
+      {:phoenix_live_view, "~> 1.1.28"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:tz, "~> 0.28"}
     ]

@@ -19,7 +19,6 @@ defmodule CaltarWeb.Endpoint do
 
   if code_reloading? do
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :caltar
   end
 
   plug Plug.RequestId

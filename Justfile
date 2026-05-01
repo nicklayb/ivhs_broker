@@ -27,11 +27,14 @@ docker-run:
 		-p 4001:4000 \
 		{{docker_image}}
 
+boot-db:
+	docker compose up -d
+
 # Fetches deps, setup assets and create the database
-setup: deps setup-assets create-db reset-db
+setup: deps boot-db setup-assets create-db reset-db
 
 # Starts a development server
-dev: deps create-db iex-server
+dev: deps boot-db create-db iex-server
 
 # Install Node assets
 setup-assets:
