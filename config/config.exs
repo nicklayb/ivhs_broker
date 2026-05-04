@@ -20,7 +20,8 @@ config :esbuild,
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
-  ]
+  ],
+  path: System.get_env("ESBUILD_PATH") || raise("ESBUILD_PATH environment variable is not set")
 
 config :tailwind,
   version: "3.4.3",
@@ -31,7 +32,8 @@ config :tailwind,
       --output=../priv/static/assets/app.css
     ),
     cd: Path.expand("../assets", __DIR__)
-  ]
+  ],
+  path: System.get_env("TAILWIND_PATH") || raise("TAILWIND_PATH environment variable is not set")
 
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

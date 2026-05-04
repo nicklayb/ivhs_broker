@@ -25,11 +25,17 @@
             pkgs.direnv
             pkgs.inotify-tools
             pkgs.just
+            pkgs.tailwindcss_4
+            pkgs.esbuild
           ];
 
           shellHook = ''
             export MIX_HOME=$PWD/.nix-mix
             export HEX_HOME=$PWD/.nix-hex
+
+            export TAILWIND_PATH=${pkgs.tailwindcss_4}/bin/tailwindcss
+            export ESBUILD_PATH=${pkgs.esbuild}/bin/esbuild
+
             eval "$(direnv hook bash)"
             direnv allow
             mix deps.get

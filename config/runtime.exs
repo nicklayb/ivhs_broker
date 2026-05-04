@@ -3,10 +3,11 @@ import Config
 config :caltar, release_name: Box.Config.get("RELEASE_NAME")
 
 config :caltar, Caltar.Repo,
-  database: Box.Config.get!("DATABASE_PATH",
-    dev: "postgresql://postgres:postgres@localhost/caltar_dev",
-    test: "postgresql://postgres:postgres@localhost/caltar_test"
-  ),
+  url:
+    Box.Config.get!("DATABASE_PATH",
+      dev: "postgresql://postgres:postgres@localhost/caltar_dev",
+      test: "postgresql://postgres:postgres@localhost/caltar_test"
+    ),
   pool_size: Box.Config.int("POOL_SIZE", default: "5")
 
 app_host = Box.Config.uri("APP_HOST", default: "http://localhost:4000")
