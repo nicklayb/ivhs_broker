@@ -14,7 +14,7 @@ config :caltar, CaltarWeb.Endpoint,
   pubsub_server: Caltar.PubSub
 
 config :esbuild,
-  version: "0.17.11",
+  version: "0.27.2",
   caltar: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
@@ -24,14 +24,13 @@ config :esbuild,
   path: System.get_env("ESBUILD_PATH") || raise("ESBUILD_PATH environment variable is not set")
 
 config :tailwind,
-  version: "3.4.3",
+  version: "4.2.3",
   caltar: [
     args: ~w(
-      --config=tailwind.config.js
-      --input=css/app.css
-      --output=../priv/static/assets/app.css
+      --input=assets/css/app.css
+      --output=priv/static/assets/app.css
     ),
-    cd: Path.expand("../assets", __DIR__)
+    cd: Path.expand("..", __DIR__)
   ],
   path: System.get_env("TAILWIND_PATH") || raise("TAILWIND_PATH environment variable is not set")
 

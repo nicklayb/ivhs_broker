@@ -9,7 +9,8 @@ defmodule Caltar.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      listeners: [Phoenix.CodeReloader]
     ]
   end
 
@@ -26,6 +27,7 @@ defmodule Caltar.MixProject do
 
   defp deps do
     [
+      {:argon2_elixir, "~> 4.0"},
       {:bandit, "~> 1.10.4"},
       {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.5"},
       {:credo, "~> 1.7.18", runtime: false, only: ~w(dev test)a},

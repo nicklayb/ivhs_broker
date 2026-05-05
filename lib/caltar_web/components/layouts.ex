@@ -18,7 +18,7 @@ defmodule CaltarWeb.Components.Layouts do
     <%= if @message do %>
       <div class={@class}>
         <%= for message <- List.wrap(@message) do %>
-          <span class=""><%= message %></span>
+          <span class="">{message}</span>
         <% end %>
       </div>
     <% end %>

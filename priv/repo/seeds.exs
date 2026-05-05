@@ -1,11 +1,6 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     Caltar.Repo.insert!(%Caltar.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+Caltar.UseCase.execute!(Caltar.UseCase.Users.CreateUser, %{
+  email: "nicklay@me.com",
+  name: "Nicolas Boisvert",
+  password: "shawi1234",
+  password_confirmation: "shawi1234"
+})

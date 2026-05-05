@@ -1,9 +1,17 @@
 defmodule Caltar do
-  @moduledoc """
-  Caltar keeps the contexts that define your domain
-  and business logic.
+  @type schema_or_id(schema) :: schema | Ecto.UUID.t())
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  def schema do
+    quote do
+      use Ecto.Schema
+      @type t :: %__MODULE__{}
+
+      @primary_key {:id, :binary_id, autogenerate: true}
+      @foreign_key_type :binary_id
+    end
+  end
+
+  defmacro __using__(type) do
+    apply(__MODULE__, type, [])
+  end
 end
