@@ -1,7 +1,11 @@
 defmodule CaltarWeb.Router do
-  use CaltarWeb, :router
+  use Phoenix.Router
 
+  import Plug.Conn
+  import Phoenix.Controller
   import Phoenix.LiveView.Router
+
+  alias CaltarWeb.Plugs
 
   pipeline(:browser) do
     plug(:accepts, ["html"])
@@ -24,7 +28,7 @@ defmodule CaltarWeb.Router do
     plug(:put_layout, {CaltarWeb.Components.Layouts, :offline})
   end
 
-  scope("/", CaltarWeb) do
+  scope("/app", CaltarWeb) do
     pipe_through([:browser])
     live("/", Main.Live)
   end
@@ -37,7 +41,7 @@ defmodule CaltarWeb.Router do
     post("/login", Authentication.Controller, :post_login)
   end
 
-  scope("/", GalerieWeb) do
+  scope("/", CaltarWeb) do
     pipe_through([:browser])
     get("/logout", Authentication.Controller, :logout)
   end

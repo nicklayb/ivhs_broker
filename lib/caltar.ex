@@ -1,5 +1,5 @@
 defmodule Caltar do
-  @type schema_or_id(schema) :: schema | Ecto.UUID.t())
+  @type schema_or_id(schema) :: schema | Ecto.UUID.t()
 
   def schema do
     quote do

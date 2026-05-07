@@ -29,7 +29,7 @@ defmodule Caltar.MixProject do
     [
       {:argon2_elixir, "~> 4.0"},
       {:bandit, "~> 1.10.4"},
-      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.5"},
+      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.6"},
       {:credo, "~> 1.7.18", runtime: false, only: ~w(dev test)a},
       {:ecto_sql, "~> 3.13"},
       {:postgrex, "~> 0.22"},
@@ -40,7 +40,8 @@ defmodule Caltar.MixProject do
       {:phoenix, "~> 1.8.5"},
       {:phoenix_live_view, "~> 1.1.28"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
-      {:tz, "~> 0.28"}
+      {:tz, "~> 0.28"},
+      {:phoenix_ecto, "~> 4.5"}
     ]
   end
 

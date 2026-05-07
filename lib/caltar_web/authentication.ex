@@ -1,4 +1,5 @@
 defmodule CaltarWeb.Authentication do
+  alias Caltar.Accounts
   alias Caltar.Schema.User
 
   @session_key "user_id"

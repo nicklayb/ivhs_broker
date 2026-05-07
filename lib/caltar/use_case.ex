@@ -2,8 +2,6 @@ defmodule Caltar.UseCase do
   alias Caltar.Schema.User
   alias Caltar.Repo
 
-  require Logger
-
   defmacro __using__(_) do
     quote do
       use Box.UseCase

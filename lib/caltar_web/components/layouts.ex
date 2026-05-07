@@ -24,4 +24,10 @@ defmodule CaltarWeb.Components.Layouts do
     <% end %>
     """
   end
+
+  def logo(assigns) do
+    ~H"""
+    <h1 class="text-4xl text-pink-400 font-bold uppercase tracking-wide">Caltar</h1>
+    """
+  end
 end

@@ -3,6 +3,9 @@ defmodule Caltar.Schema.User do
 
   alias Caltar.Schema.User
 
+  @type email :: String.t()
+  @type password :: String.t()
+
   schema("users") do
     field(:name, :string)
     field(:email, :string)

@@ -13,6 +13,8 @@ config :caltar, CaltarWeb.Endpoint,
   ],
   pubsub_server: Caltar.PubSub
 
+config :caltar, Caltar.Repo, migration_primary_key: [name: :id, type: :binary_id]
+
 config :esbuild,
   version: "0.27.2",
   caltar: [
