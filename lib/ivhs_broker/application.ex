@@ -5,9 +5,10 @@ defmodule IvhsBroker.Application do
   def start(_type, _args) do
     children = [
       IvhsBroker.Repo,
+      IvhsBroker.CardConsumer,
       {Ecto.Migrator,
        repos: Application.fetch_env!(:ivhs_broker, :ecto_repos), skip: skip_migrations?()},
-      {Phoenix.PubSub, name: IvhsBroker.PubSub},
+      IvhsBroker.PubSub,
       IvhsBrokerWeb.Endpoint
     ]
 

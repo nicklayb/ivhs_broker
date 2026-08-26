@@ -42,4 +42,7 @@ config :logger, :console,
 
 config :phoenix, :json_library, Jason
 
+config :ivhs_broker, IvhsBroker.Mqtt, 
+  adapter: {IvhsBroker.Mqtt.Adapter.Mqttx, handler: IvhsBroker.Mqtt.Adapter.Mqttx.Handler, handler_state: %{}}
+
 import_config "#{config_env()}.exs"

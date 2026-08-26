@@ -18,3 +18,12 @@ config :ivhs_broker, IvhsBrokerWeb.Endpoint,
   url: [host: app_host.host, scheme: app_host.scheme, port: app_host.port],
   secret_key_base: Box.Config.get!("SECRET_KEY_BASE"),
   live_view: [signing_salt: Box.Config.get!("LIVE_VIEW_SALT")]
+
+config :logger, level: Box.Config.atom("LOGGER_LEVEL", default: "info")
+
+config :ivhs_broker, IvhsBroker.Mqtt,
+  host: Box.Config.get!("MQTT_HOST"),
+  port: Box.Config.int("MQTT_PORT", default: "1883"),
+  client_id: Box.Config.get("MQTT_CLIENT_ID", default: "ivhs"),
+  username: Box.Config.get("MQTT_USERNAME"),
+  password: Box.Config.get("MQTT_PASSWORD")

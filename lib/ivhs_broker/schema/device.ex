@@ -14,5 +14,12 @@ defmodule IvhsBroker.Schema.Device do
     device
     |> Ecto.Changeset.cast(params, @required)
     |> Ecto.Changeset.validate_required(@required)
+    |> validate_reader_name(:reader_name)
+  end
+
+  def validate_reader_name(%Ecto.Changeset{} = changeset, field) do
+    changeset
+    |> Ecto.Changeset.update_change(field, &String.downcase/1)
+    |> Ecto.Changeset.validate_format(field, ~r/^[a-z0-9_-]+$/)
   end
 end

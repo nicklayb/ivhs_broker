@@ -41,7 +41,9 @@ defmodule IvhsBroker.MixProject do
       {:phoenix_live_view, "~> 1.1.28"},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:tz, "~> 0.28"},
-      {:phoenix_ecto, "~> 4.5"}
+      {:phoenix_ecto, "~> 4.5"},
+      {:mqttx, "~> 0.11.0"},
+      {:thousand_island, "~> 1.4"}
     ]
   end
 

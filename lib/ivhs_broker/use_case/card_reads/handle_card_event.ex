@@ -1,52 +1,27 @@
 defmodule IvhsBroker.UseCase.CardReads.HandleCardEvent do
+  alias IvhsBroker.CardConsumer.UpdatedMessage
   alias IvhsBroker.Schema.Device
   alias IvhsBroker.Schema.Card
   alias IvhsBroker.Schema.CardRead
   use IvhsBroker.UseCase
 
   @impl Box.UseCase
-  def validate(params, _options) do
-    changeset = validate_params(params)
-
-    if changeset.valid? do
-      {:ok, Ecto.Changeset.apply_changes(changeset)}
-    else
-      {:error, changeset}
-    end
+  def validate(%UpdatedMessage{} = message, _options) do
+    {:ok, message}
   end
 
-  @types %{
-    reader_name: :string,
-    uid: :string,
-    state: Ecto.ParameterizedType.init(Ecto.Enum, values: CardRead.states())
-  }
-  @type_keys Map.keys(@types)
-  def validate_params(params) do
-    {%{}, @types}
-    |> Ecto.Changeset.cast(params, @type_keys)
-    |> Ecto.Changeset.validate_required(@type_keys)
+  def validate(params, _options) do
+    UpdatedMessage.init(params)
   end
 
   @impl Box.UseCase
-  def run(multi, %{reader_name: reader_name, uid: uid, state: state}, _options) do
+  def run(multi, %UpdatedMessage{reader_name: reader_name, uid: uid, state: state}, _options) do
     multi
-    |> Ecto.Multi.run(:get_or_create_device, fn repo, _ ->
-      with nil <- repo.get(Device, reader_name) do
-        %{reader_name: reader_name}
-        |> Device.create_changeset()
-        |> repo.insert()
-      end
-
-      {:ok, reader_name}
+    |> Ecto.Multi.run(:device, fn repo, _ ->
+      get_or_create(repo, Device, reader_name, &Device.create_changeset/1)
     end)
-    |> Ecto.Multi.run(:get_or_create_card, fn repo, _ ->
-      with nil <- repo.get(Card, uid) do
-        %{uid: uid}
-        |> Card.create_changeset()
-        |> repo.insert()
-      end
-
-      {:ok, uid}
+    |> Ecto.Multi.run(:card, fn repo, _ ->
+      get_or_create(repo, Card, uid, &Card.create_changeset/1)
     end)
     |> Ecto.Multi.insert(
       :card_read,
@@ -54,8 +29,43 @@ defmodule IvhsBroker.UseCase.CardReads.HandleCardEvent do
     )
   end
 
+  defp get_or_create(repo, schema, key, changeset_function) do
+    case repo.fetch(schema, key) do
+      {:error, :not_found} ->
+        [primary_key] = schema.__schema__(:primary_key)
+
+        %{primary_key => key}
+        |> then(changeset_function)
+        |> repo.insert()
+        |> Box.Result.map(&{:new, &1})
+
+      {:ok, struct} ->
+        {:ok, {:existing, struct}}
+    end
+  end
+
   @impl Box.UseCase
   def return(%{card_read: card_read}, _options) do
     card_read
   end
+
+  @impl Box.UseCase
+  def after_run(
+        %{card: {card_status, card}, device: {device_status, device}, card_read: card_read},
+        _
+      ) do
+    [
+      {"cards/#{card.uid}", card_read},
+      {"devices/#{device.reader_name}", card_read},
+      {"card_reads", card_read}
+    ]
+    |> maybe_add({"cards", card}, card_status == :new)
+    |> maybe_add({"devices", device}, device_status == :new)
+    |> Enum.each(fn {topic, payload} ->
+      IvhsBroker.PubSub.broadcast(topic, {:new_entry, payload})
+    end)
+  end
+
+  defp maybe_add(list, topic, true), do: [topic | list]
+  defp maybe_add(list, _topic, false), do: list
 end
