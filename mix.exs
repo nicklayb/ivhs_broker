@@ -1,9 +1,9 @@
-defmodule Caltar.MixProject do
+defmodule IvhsBroker.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :caltar,
+      app: :ivhs_broker,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -16,7 +16,7 @@ defmodule Caltar.MixProject do
 
   def application do
     [
-      mod: {Caltar.Application, []},
+      mod: {IvhsBroker.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -52,10 +52,10 @@ defmodule Caltar.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind caltar", "esbuild caltar"],
+      "assets.build": ["tailwind ivhs_broker", "esbuild ivhs_broker"],
       "assets.deploy": [
-        "tailwind caltar --minify",
-        "esbuild caltar --minify",
+        "tailwind ivhs_broker --minify",
+        "esbuild ivhs_broker --minify",
         "phx.digest"
       ],
       gettext: [

@@ -1,11 +1,11 @@
 # STEP 1 - Build release compiler container
 FROM elixir:1.18-otp-27-alpine AS builder
 
-ENV APP_NAME=caltar \
+ENV APP_NAME=ivhs_broker \
     APP_VERSION=0.1.0 \
     MIX_ENV=prod
 
-WORKDIR /caltar
+WORKDIR /ivhs_broker
 
 # Install build requirements
 RUN apk update && \
@@ -59,10 +59,10 @@ RUN chmod a+x /usr/local/bin/entrypoint.sh
 RUN mkdir ${ROOT_FOLDER}/logs
 
 # Create a non-root user
-RUN adduser -D caltar && \
-    chown -R caltar: ${ROOT_FOLDER}
+RUN adduser -D ivhs_broker && \
+    chown -R ivhs_broker: ${ROOT_FOLDER}
 
-USER caltar
+USER ivhs_broker
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["start"]

@@ -1,4 +1,4 @@
-Caltar.UseCase.execute!(Caltar.UseCase.Users.CreateUser, %{
+IvhsBroker.UseCase.execute!(IvhsBroker.UseCase.Users.CreateUser, %{
   email: "nicklay@me.com",
   name: "Nicolas Boisvert",
   password: "shawi1234",

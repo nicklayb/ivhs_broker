@@ -1,4 +1,4 @@
-alias Caltar.Schema.User
-alias Caltar.Repo
+alias IvhsBroker.Schema.User
+alias IvhsBroker.Repo
 
 import Ecto.Query

@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(Caltar.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(IvhsBroker.Repo, :manual)

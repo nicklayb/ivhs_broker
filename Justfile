@@ -1,6 +1,6 @@
 docker_registry := "nboisvert"
 docker_tag := "latest"
-docker_image := "caltar" + ":" + docker_tag
+docker_image := "ivhs_broker" + ":" + docker_tag
 docker_remote_image := docker_registry / docker_image
 
 # Starts the dev environment by default

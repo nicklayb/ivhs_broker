@@ -1,8 +1,8 @@
 import Config
 
-config :caltar, Caltar.Repo, pool: Ecto.Adapters.SQL.Sandbox
+config :ivhs_broker, IvhsBroker.Repo, pool: Ecto.Adapters.SQL.Sandbox
 
-config :caltar, CaltarWeb.Endpoint, server: false
+config :ivhs_broker, IvhsBrokerWeb.Endpoint, server: false
 
 config :logger, level: :warning
 

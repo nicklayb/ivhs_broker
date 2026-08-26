@@ -1,4 +1,4 @@
-defmodule Caltar.Repo.Migrations.CreateUsersTable do
+defmodule IvhsBroker.Repo.Migrations.CreateUsersTable do
   use Ecto.Migration
 
   def change do

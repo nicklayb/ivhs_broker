@@ -1,23 +1,23 @@
 import Config
 
-config :caltar,
+config :ivhs_broker,
   environment: config_env(),
-  ecto_repos: [Caltar.Repo],
+  ecto_repos: [IvhsBroker.Repo],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
-config :caltar, CaltarWeb.Endpoint,
+config :ivhs_broker, IvhsBrokerWeb.Endpoint,
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [json: CaltarWeb.ErrorJSON],
+    formats: [json: IvhsBrokerWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Caltar.PubSub
+  pubsub_server: IvhsBroker.PubSub
 
-config :caltar, Caltar.Repo, migration_primary_key: [name: :id, type: :binary_id]
+config :ivhs_broker, IvhsBroker.Repo, migration_primary_key: [name: :id, type: :binary_id]
 
 config :esbuild,
   version: "0.27.2",
-  caltar: [
+  ivhs_broker: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
@@ -27,7 +27,7 @@ config :esbuild,
 
 config :tailwind,
   version: "4.2.3",
-  caltar: [
+  ivhs_broker: [
     args: ~w(
       --input=assets/css/app.css
       --output=priv/static/assets/app.css

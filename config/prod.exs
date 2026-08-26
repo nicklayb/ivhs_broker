@@ -1,7 +1,7 @@
 import Config
 
-config :caltar, CaltarWeb.Endpoint, cache_static_manifest: "priv/static/cache_manifest.json"
+config :ivhs_broker, IvhsBrokerWeb.Endpoint, cache_static_manifest: "priv/static/cache_manifest.json"
 
 config :logger, level: :info
 
-config :caltar, CaltarWeb.Endpoint, server: true
+config :ivhs_broker, IvhsBrokerWeb.Endpoint, server: true
