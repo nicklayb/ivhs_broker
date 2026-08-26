@@ -1,12 +1,9 @@
 defmodule IvhsBroker.UseCase do
-  alias IvhsBroker.Schema.User
   alias IvhsBroker.Repo
 
   defmacro __using__(_) do
     quote do
       use Box.UseCase
-
-      import IvhsBroker.UseCase, only: [authorize: 2]
     end
   end
 
@@ -26,21 +23,5 @@ defmodule IvhsBroker.UseCase do
 
   defp with_default_options(options) do
     Keyword.put(options, :run, &Repo.transaction/2)
-  end
-
-  def authorize(use_case_options, options \\ []) do
-    case {Keyword.get(use_case_options, :user), Keyword.get(options, :required, true)} do
-      {nil, true} ->
-        {:error, :unauthorized}
-
-      {nil, false} ->
-        {:ok, nil}
-
-      {:system, _} ->
-        {:ok, :system}
-
-      {%User{} = user, _} ->
-        {:ok, user}
-    end
   end
 end

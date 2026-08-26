@@ -66,6 +66,8 @@ defmodule IvhsBrokerWeb do
     quote do
       use IvhsBrokerWeb.Gettext
       alias Box.Html
+      alias IvhsBrokerWeb.Components
+      alias IvhsBrokerWeb.Components.Layouts
       unquote(verified_routes())
     end
   end

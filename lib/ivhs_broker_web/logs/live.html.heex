@@ -1,0 +1,31 @@
+<Layouts.app current_path={@current_path}>
+  <Components.loading async_result={@logs}>
+    <Components.Table.render data={@logs}>
+      <:cell :let={row} title={gettext("Reader name")}>
+        {row.device_reader_name}
+      </:cell>
+      <:cell :let={row} title={gettext("Card UID")} cell_class="font-mono text-sm">
+        {row.card_uid}
+      </:cell>
+      <:cell :let={row} title={gettext("State")}>
+        <span class={
+          Box.Html.class(
+            "inline-flex items-center gap-2 border px-2 py-1 text-[10px] font-black uppercase",
+            [
+              {row.state == :inserted, "border-[#668c52] bg-[#d5e5c8]",
+               "border-[#80694e] bg-[#f0d6b5]"}
+            ]
+          )
+        }>
+          <span class={
+            Box.Html.class("h-1.5 w-1.5 rounded-full", [
+              {row.state == :inserted, "bg-[#668c52]", "bg-[#80694e]"}
+            ])
+          }>
+            {row.state}
+          </span>
+        </span>
+      </:cell>
+    </Components.Table.render>
+  </Components.loading>
+</Layouts.app>

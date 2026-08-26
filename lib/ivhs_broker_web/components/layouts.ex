@@ -30,4 +30,13 @@ defmodule IvhsBrokerWeb.Components.Layouts do
     <h1 class="text-4xl text-pink-400 font-bold uppercase tracking-wide">IvhsBroker</h1>
     """
   end
+
+  def nav do
+    [
+      %{name: gettext("Logs"), link: ~p"/"},
+      %{name: gettext("Devices"), link: ~p"/devices"},
+      %{name: gettext("Cards"), link: ~p"/cards"},
+      %{name: gettext("Settings"), link: ~p"/settings"}
+    ]
+  end
 end

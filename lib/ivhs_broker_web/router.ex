@@ -5,7 +5,7 @@ defmodule IvhsBrokerWeb.Router do
   import Phoenix.Controller
   import Phoenix.LiveView.Router
 
-  alias IvhsBrokerWeb.Plugs
+  alias IvhsBrokerWeb.Hooks
 
   pipeline(:browser) do
     plug(:accepts, ["html"])
@@ -15,34 +15,16 @@ defmodule IvhsBrokerWeb.Router do
     plug(:put_layout, {IvhsBrokerWeb.Components.Layouts, :app})
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
+    plug(IvhsBrokerWeb.Plugs.CurrentPath)
   end
 
-  pipeline(:session_authenticated) do
-    plug(Plugs.LoadUser)
-    plug(Plugs.EnsureAuthenticated, authenticated: true)
-  end
-
-  pipeline(:session_offline) do
-    plug(Plugs.LoadUser)
-    plug(Plugs.EnsureAuthenticated, authenticated: false)
-    plug(:put_layout, {IvhsBrokerWeb.Components.Layouts, :offline})
-  end
-
-  scope("/app", IvhsBrokerWeb) do
-    pipe_through([:browser])
-    live("/", Main.Live)
-  end
-
-  scope("/", IvhsBrokerWeb) do
-    pipe_through([:browser, :session_offline])
-
-    get("/", Authentication.Controller, :login)
-    get("/login", Authentication.Controller, :login)
-    post("/login", Authentication.Controller, :post_login)
-  end
-
-  scope("/", IvhsBrokerWeb) do
-    pipe_through([:browser])
-    get("/logout", Authentication.Controller, :logout)
+  live_session :default, on_mount: Hooks.PutCurrentPath do
+    scope("/", IvhsBrokerWeb) do
+      pipe_through([:browser])
+      live("/", Logs.Live)
+      live("/devices", Devices.Live)
+      live("/cards", Cards.Live)
+      live("/settings", Settings.Live)
+    end
   end
 end

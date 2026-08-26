@@ -2,7 +2,6 @@ defmodule IvhsBroker.Mqtt.Client do
   def connect(options \\ []) do
     connection_options = connection_options(options)
     {adapter, adapter_options} = adapter(connection_options)
-    IO.inspect(adapter_options)
 
     adapter.connect(adapter_options)
   end
