@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content={Phoenix.Controller.get_csrf_token()} />
+    <.live_title prefix="IvhsBroker - ">
+      {assigns[:page_title] || ~s|gettext("Welcome")|}
+    </.live_title>
+    <link phx-track-static rel="stylesheet" href={~p(/assets/app.css)} />
+    <script defer phx-track-static type="text/javascript" src={~p(/assets/app.js)}>
+    </script>
+  </head>
+  <body class="h-screen bg-gray-100 text-gray-900 flex flex-col overflow-y-hidden">
+    {@inner_content}
+  </body>
+</html>

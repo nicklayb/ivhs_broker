@@ -1,0 +1,7 @@
+<div class="flex h-screen overflow-y-auto">
+  <div class="m-auto w-full max-w-xl p-2">
+    <.message message={Phoenix.Flash.get(@flash, :error)} type={:error} />
+    <.message message={Phoenix.Flash.get(@flash, :info)} type={:info} />
+    {@inner_content}
+  </div>
+</div>
