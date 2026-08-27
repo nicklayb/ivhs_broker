@@ -68,6 +68,7 @@ defmodule IvhsBrokerWeb do
       alias Box.Html
       alias IvhsBrokerWeb.Components
       alias IvhsBrokerWeb.Components.Layouts
+      import IvhsBrokerWeb.Helpers
       unquote(verified_routes())
     end
   end

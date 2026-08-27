@@ -7,4 +7,14 @@
   --color-success: #d5e5c8;
   --color-warning: #f0d6b5;
   --color-info: #ddd3e6;
+
+  @keyframes new-item {
+    0% {
+      background-color: var(--color-success);
+    }
+
+    100% {
+      background-color: var(--color-paper);
+    }
+  }
 }

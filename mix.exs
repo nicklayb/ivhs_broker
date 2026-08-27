@@ -29,7 +29,7 @@ defmodule IvhsBroker.MixProject do
     [
       {:argon2_elixir, "~> 4.0"},
       {:bandit, "~> 1.10.4"},
-      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.6"},
+      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.7"},
       {:credo, "~> 1.7.18", runtime: false, only: ~w(dev test)a},
       {:ecto_sql, "~> 3.13"},
       {:postgrex, "~> 0.22"},
