@@ -15,7 +15,7 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-        systemSpecificDeps = if pkgs.stdenv.isLinux then [ pkgs.inotify-tools ] else [ ];
+        systemSpecificDeps = if pkgs.stdenv.hostPlatform.isLinux then [ pkgs.inotify-tools ] else [ ];
       in
       {
         devShells.default = pkgs.mkShell {

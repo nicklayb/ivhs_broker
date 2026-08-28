@@ -35,4 +35,12 @@ defmodule IvhsBroker.Cards do
       Repo.aggregate(Card, :count)
     end)
   end
+
+  def update_card(%Card{} = card, attrs) do
+    update_card(card.uid, attrs)
+  end
+
+  def update_card(uid, attrs) do
+    IvhsBroker.UseCase.execute(IvhsBroker.UseCase.Cards.Update, {uid, attrs})
+  end
 end

@@ -118,9 +118,7 @@ defmodule IvhsBrokerWeb.Cards.Index do
   defp subscribe(socket) do
     topics = ["cards"] ++ card_topics(socket.assigns.cards)
 
-    socket
-    |> unsubscribe_all()
-    |> subscribe(topics)
+    subscribe(socket, topics)
   end
 
   defp card_topics(%AsyncResult{ok?: true, result: %Page{results: results}}) do

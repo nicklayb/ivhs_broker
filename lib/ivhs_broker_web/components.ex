@@ -97,7 +97,7 @@ defmodule IvhsBrokerWeb.Components do
         </div>
 
         <div class="flex gap-2">
-          {render_slot(@left)}
+          {render_slot(@right)}
         </div>
       </div>
 

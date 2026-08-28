@@ -18,6 +18,10 @@ defmodule IvhsBrokerWeb.Router do
     plug(IvhsBrokerWeb.Plugs.CurrentPath)
   end
 
+  pipeline(:api) do
+    plug(:accepts, ["json"])
+  end
+
   live_session :default, on_mount: [Hooks.PutCurrentPath, Hooks.PutDefaultAssigns] do
     scope("/", IvhsBrokerWeb) do
       pipe_through([:browser])
@@ -28,5 +32,10 @@ defmodule IvhsBrokerWeb.Router do
       live("/cards/:uid", Cards.Show)
       live("/settings", Settings.Index)
     end
+  end
+
+  scope("/webhooks", IvhsBrokerWeb) do
+    pipe_through([:api])
+    post("/card_reads", Webhooks.CardReads.Controller, :create)
   end
 end

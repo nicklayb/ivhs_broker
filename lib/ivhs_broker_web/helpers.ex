@@ -9,9 +9,14 @@ defmodule IvhsBrokerWeb.Helpers do
     end
   end
 
-  def subscribe(%Phoenix.LiveView.Socket{} = socket, topic_or_topics) do
+  def subscribe(%Phoenix.LiveView.Socket{} = socket, topic_or_topics, options \\ []) do
     map_connected(socket, fn socket ->
       topics = List.wrap(topic_or_topics)
+
+      if Keyword.get(options, :unsubscribe_removed, true) do
+        removed_topics = topics -- subscribed_topics(socket)
+        IvhsBroker.PubSub.unsubscribe(removed_topics)
+      end
 
       IvhsBroker.PubSub.subscribe(topics)
 

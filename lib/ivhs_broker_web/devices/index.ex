@@ -94,9 +94,7 @@ defmodule IvhsBrokerWeb.Devices.Index do
   defp subscribe(socket) do
     topics = ["devices"] ++ device_topics(socket.assigns.devices)
 
-    socket
-    |> unsubscribe_all()
-    |> subscribe(topics)
+    subscribe(socket, topics)
   end
 
   defp device_topics(%AsyncResult{ok?: true, result: %Page{results: results}}) do

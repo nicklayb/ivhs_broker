@@ -4,7 +4,7 @@
     <Components.box>
       <:title>{gettext("Cards")}</:title>
       <:sub_title>{gettext("%{count} known cards", count: @count_cards)}</:sub_title>
-      <:left></:left>
+      <:right></:right>
       <Components.Table.render data={@cards}>
         <:cell :let={row} title={gettext("UID")} cell_class="font-mono text-sm">
           <Components.href navigate={~p"/cards/#{row.uid}"}>

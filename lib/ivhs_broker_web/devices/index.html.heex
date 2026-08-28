@@ -4,7 +4,7 @@
     <Components.box>
       <:title>{gettext("Devices")}</:title>
       <:sub_title>{gettext("%{count} known devices", count: @count_devices)}</:sub_title>
-      <:left></:left>
+      <:right></:right>
       <Components.Table.render data={@devices}>
         <:cell :let={row} title={gettext("Reader name")} cell_class="font-mono text-sm">
           <Components.href navigate={~p"/devices/#{row.reader_name}"}>
