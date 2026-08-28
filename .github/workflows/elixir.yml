@@ -9,6 +9,7 @@ env:
   MIX_ENV: "test"
   SECRET_KEY_BASE: "FH0XS5rdftWJzFtrO0vZthEP+BF/m/9lZYC6MAZa5nHjOLDdlP2g5U3hSJCBnD3B"
   LIVE_VIEW_SALT: "oh8aX0/4A6KqRcPHKAD8nisib4JkLQ+b"
+  MQTT_HOST: "mqtt.local"
 
 permissions:
   contents: read
