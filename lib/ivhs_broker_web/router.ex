@@ -18,13 +18,15 @@ defmodule IvhsBrokerWeb.Router do
     plug(IvhsBrokerWeb.Plugs.CurrentPath)
   end
 
-  live_session :default, on_mount: Hooks.PutCurrentPath do
+  live_session :default, on_mount: [Hooks.PutCurrentPath, Hooks.PutDefaultAssigns] do
     scope("/", IvhsBrokerWeb) do
       pipe_through([:browser])
-      live("/", Logs.Live)
-      live("/devices", Devices.Live)
-      live("/cards", Cards.Live)
-      live("/settings", Settings.Live)
+      live("/", Logs.Index)
+      live("/devices", Devices.Index)
+      live("/devices/:reader_name", Devices.Show)
+      live("/cards", Cards.Index)
+      live("/cards/:uid", Cards.Show)
+      live("/settings", Settings.Index)
     end
   end
 end

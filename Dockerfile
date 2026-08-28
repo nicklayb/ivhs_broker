@@ -54,8 +54,6 @@ COPY --from=builder /opt/build .
 
 RUN ls .
 
-COPY dockerfiles/entrypoint.sh /usr/local/bin
-RUN chmod a+x /usr/local/bin/entrypoint.sh
 RUN mkdir ${ROOT_FOLDER}/logs
 
 # Create a non-root user
@@ -64,5 +62,5 @@ RUN adduser -D ivhs_broker && \
 
 USER ivhs_broker
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/opt/rel/ivhs_broker/bin/ivhs_broker"]
 CMD ["start"]

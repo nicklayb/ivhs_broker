@@ -1,0 +1,34 @@
+<Layouts.app current_path={@current_path}>
+  <div class="text-lg font-black uppercase tracking-[0.18em] mb-3">{gettext("Devices")}</div>
+  <Components.loading async_result={@devices}>
+    <Components.box>
+      <:title>{gettext("Devices")}</:title>
+      <:sub_title>{gettext("%{count} known devices", count: @count_devices)}</:sub_title>
+      <:left></:left>
+      <Components.Table.render data={@devices}>
+        <:cell :let={row} title={gettext("Reader name")} cell_class="font-mono text-sm">
+          <Components.href navigate={~p"/devices/#{row.reader_name}"}>
+            {row.reader_name}
+          </Components.href>
+        </:cell>
+        <:cell :let={row} title={gettext("Active card")} cell_class="font-mono text-sm">
+          <div>
+            <%= case row.card_reads do %>
+              <% [%CardRead{state: :inserted} = card_read | _] -> %>
+                <Components.label>
+                  <.link navigate={~p"/cards/#{card_read.card_uid}"}>
+                    {card_read.card_uid}
+                  </.link>
+                </Components.label>
+              <% _ -> %>
+                <div></div>
+            <% end %>
+          </div>
+        </:cell>
+        <:cell :let={row} title={gettext("Inserted at")} cell_class="text-sm">
+          {row.inserted_at}
+        </:cell>
+      </Components.Table.render>
+    </Components.box>
+  </Components.loading>
+</Layouts.app>

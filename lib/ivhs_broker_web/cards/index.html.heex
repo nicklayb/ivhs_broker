@@ -1,0 +1,38 @@
+<Layouts.app current_path={@current_path}>
+  <div class="text-lg font-black uppercase tracking-[0.18em] mb-3">{gettext("Cards")}</div>
+  <Components.loading async_result={@cards}>
+    <Components.box>
+      <:title>{gettext("Cards")}</:title>
+      <:sub_title>{gettext("%{count} known cards", count: @count_cards)}</:sub_title>
+      <:left></:left>
+      <Components.Table.render data={@cards}>
+        <:cell :let={row} title={gettext("UID")} cell_class="font-mono text-sm">
+          <Components.href navigate={~p"/cards/#{row.uid}"}>
+            {Card.label(row)}
+          </Components.href>
+        </:cell>
+        <:cell :let={row} title={gettext("Current device")}>
+          <%= case row.card_reads do %>
+            <% [%CardRead{state: :inserted} = card_read | _] -> %>
+              <Components.label>
+                <.link navigate={~p"/devices/#{card_read.device_reader_name}"}>
+                  {card_read.device_reader_name}
+                </.link>
+              </Components.label>
+            <% _ -> %>
+          <% end %>
+        </:cell>
+        <:cell :let={row} title={gettext("Last saw on")} cell_class="text-sm">
+          <%= case row.card_reads do %>
+            <% [%CardRead{} = card_read | _] -> %>
+              {card_read.inserted_at}
+            <% _ -> %>
+          <% end %>
+        </:cell>
+        <:cell :let={row} title={gettext("First read on")} cell_class="text-sm">
+          {row.inserted_at}
+        </:cell>
+      </Components.Table.render>
+    </Components.box>
+  </Components.loading>
+</Layouts.app>

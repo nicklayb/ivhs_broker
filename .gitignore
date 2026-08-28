@@ -41,3 +41,5 @@ npm-debug.log
 *.db-*
 .nix-mix
 .nix-hex
+
+.github/actions/**/node_modules

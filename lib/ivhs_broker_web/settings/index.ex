@@ -1,4 +1,4 @@
-defmodule IvhsBrokerWeb.Settings.Live do
+defmodule IvhsBrokerWeb.Settings.Index do
   use IvhsBrokerWeb, :live_view
 
   def mount(_params, _session, socket) do

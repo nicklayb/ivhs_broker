@@ -1,0 +1,13 @@
+name: 'Push tags'
+description: 'Creates tag automatically when VERSION gets bumped'
+inputs:
+  token:
+    description: "GitHub Token"
+outputs:
+  version:
+    description: 'Version of the repo'
+  created:
+    description: 'true if a new tag was created, false if it already existed'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

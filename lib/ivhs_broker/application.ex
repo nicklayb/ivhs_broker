@@ -4,11 +4,14 @@ defmodule IvhsBroker.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      IvhsBroker.PubSub,
+      {Box.Cache.Server, name: IvhsBroker.Cache},
       IvhsBroker.Repo,
       IvhsBroker.CardConsumer,
+      IvhsBroker.EventEmitter,
+      IvhsBroker.Mqtt.Client,
       {Ecto.Migrator,
        repos: Application.fetch_env!(:ivhs_broker, :ecto_repos), skip: skip_migrations?()},
-      IvhsBroker.PubSub,
       IvhsBrokerWeb.Endpoint
     ]
 

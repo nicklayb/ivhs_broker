@@ -1,10 +1,16 @@
 defmodule IvhsBroker.Schema.Device do
   use IvhsBroker, :schema
 
+  alias IvhsBroker.Schema.CardRead
   alias IvhsBroker.Schema.Device
 
   @primary_key {:reader_name, :string, autogenerate: false}
   schema("devices") do
+    has_many(:card_reads, CardRead,
+      foreign_key: :device_reader_name,
+      preload_order: [desc: :inserted_at]
+    )
+
     timestamps()
   end
 

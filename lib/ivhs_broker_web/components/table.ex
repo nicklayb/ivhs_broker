@@ -83,7 +83,7 @@ defmodule IvhsBrokerWeb.Components.Table do
       phx-click={@on_click}
       class={
         Box.Html.class(
-          "border-2 bg-[#e7dcc5] px-4 py-2 text-xs font-black uppercase",
+          "border-2 bg-[#e7dcc5] px-4 ml-1 py-2 text-xs font-black uppercase",
           [
             {
               not @disabled,

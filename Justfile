@@ -67,3 +67,9 @@ refresh: clean deps
 deps:
 	mix deps.get
 
+install-actions-deps:
+	npm install --prefix .github/actions/tag_repo
+
+build-actions: install-actions-deps
+  cd .github/actions/tag_repo && npm run build
+

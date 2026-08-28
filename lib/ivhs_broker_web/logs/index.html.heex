@@ -1,0 +1,30 @@
+<Layouts.app current_path={@current_path}>
+  <div class="text-lg font-black uppercase tracking-[0.18em] mb-3">{gettext("Logs")}</div>
+  <Components.box>
+    <:title>{gettext("Logs")}</:title>
+    <:sub_title>{gettext("%{count} interactions", count: @count_card_reads)}</:sub_title>
+    <:left></:left>
+    <Components.loading async_result={@logs}>
+      <Components.Table.render data={@logs}>
+        <:cell :let={row} title={gettext("Reader name")} cell_class="font-mono text-xs">
+          <Components.href navigate={~p"/devices/#{row.device_reader_name}"}>
+            {row.device_reader_name}
+          </Components.href>
+        </:cell>
+        <:cell :let={row} title={gettext("Card UID")} cell_class="font-mono text-sm">
+          <Components.href navigate={~p"/cards/#{row.card_uid}"}>
+            {Card.label(row.card)}
+          </Components.href>
+        </:cell>
+        <:cell :let={row} title={gettext("State")}>
+          <Components.label state={row.state} valid_state={:inserted}>
+            {row.state}
+          </Components.label>
+        </:cell>
+        <:cell :let={row} title={gettext("Inserted at")} cell_class="text-sm">
+          {row.inserted_at}
+        </:cell>
+      </Components.Table.render>
+    </Components.loading>
+  </Components.box>
+</Layouts.app>

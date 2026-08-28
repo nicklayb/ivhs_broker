@@ -5,6 +5,8 @@ defmodule IvhsBroker.UseCase.CardReads.HandleCardEvent do
   alias IvhsBroker.Schema.CardRead
   use IvhsBroker.UseCase
 
+  @cache IvhsBroker.Cache
+
   @impl Box.UseCase
   def validate(%UpdatedMessage{} = message, _options) do
     {:ok, message}
@@ -51,16 +53,26 @@ defmodule IvhsBroker.UseCase.CardReads.HandleCardEvent do
 
   @impl Box.UseCase
   def after_run(
-        %{card: {card_status, card}, device: {device_status, device}, card_read: card_read},
+        %{
+          card: {card_status, %Card{} = card},
+          device: {device_status, %Device{} = device},
+          card_read: %CardRead{} = card_read
+        },
         _
       ) do
+    card_read = %CardRead{card_read | card: card, device: device}
+
+    if card_status == :new, do: Box.Cache.delete(@cache, :count_cards)
+    if device_status == :new, do: Box.Cache.delete(@cache, :count_devices)
+    Box.Cache.delete(@cache, :count_card_reads)
+
     [
-      {"cards/#{card.uid}", card_read},
-      {"devices/#{device.reader_name}", card_read},
+      {"cards:#{card.uid}", card_read},
+      {"devices:#{device.reader_name}", card_read},
       {"card_reads", card_read}
     ]
-    |> maybe_add({"cards", card}, card_status == :new)
-    |> maybe_add({"devices", device}, device_status == :new)
+    |> maybe_add({"cards", %Card{card | card_reads: [card_read]}}, card_status == :new)
+    |> maybe_add({"devices", %Device{device | card_reads: [card_read]}}, device_status == :new)
     |> Enum.each(fn {topic, payload} ->
       IvhsBroker.PubSub.broadcast(topic, {:new_entry, payload})
     end)

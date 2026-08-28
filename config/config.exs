@@ -5,6 +5,8 @@ config :ivhs_broker,
   ecto_repos: [IvhsBroker.Repo],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
+config :ivhs_broker, IvhsBroker.Repo, migration_timestamps: [type: :utc_datetime_usec]
+
 config :ivhs_broker, IvhsBrokerWeb.Endpoint,
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
@@ -42,7 +44,9 @@ config :logger, :console,
 
 config :phoenix, :json_library, Jason
 
-config :ivhs_broker, IvhsBroker.Mqtt, 
-  adapter: {IvhsBroker.Mqtt.Adapter.Mqttx, handler: IvhsBroker.Mqtt.Adapter.Mqttx.Handler, handler_state: %{}}
+config :ivhs_broker, IvhsBroker.Mqtt,
+  adapter:
+    {IvhsBroker.Mqtt.Adapter.Mqttx,
+     handler: IvhsBroker.Mqtt.Adapter.Mqttx.Handler, handler_state: %{}}
 
 import_config "#{config_env()}.exs"

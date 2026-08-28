@@ -1,10 +1,12 @@
 defmodule IvhsBroker.MixProject do
   use Mix.Project
 
+  @version "VERSION" |> File.read!() |> String.trim()
+
   def project do
     [
       app: :ivhs_broker,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
@@ -29,7 +31,7 @@ defmodule IvhsBroker.MixProject do
     [
       {:argon2_elixir, "~> 4.0"},
       {:bandit, "~> 1.10.4"},
-      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.7"},
+      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.10"},
       {:credo, "~> 1.7.18", runtime: false, only: ~w(dev test)a},
       {:ecto_sql, "~> 3.13"},
       {:postgrex, "~> 0.22"},

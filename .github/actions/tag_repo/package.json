@@ -1,0 +1,16 @@
+{
+  "name": "tag_repo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx ncc build index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "@vercel/ncc": "^0.38.3"
+  }
+}
