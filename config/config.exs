@@ -25,7 +25,7 @@ config :esbuild,
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ],
-  path: System.get_env("ESBUILD_PATH") || raise("ESBUILD_PATH environment variable is not set")
+  path: System.get_env("ESBUILD_PATH") || nil
 
 config :tailwind,
   version: "4.2.3",
@@ -36,7 +36,7 @@ config :tailwind,
     ),
     cd: Path.expand("..", __DIR__)
   ],
-  path: System.get_env("TAILWIND_PATH") || raise("TAILWIND_PATH environment variable is not set")
+  path: System.get_env("TAILWIND_PATH") || nil
 
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
