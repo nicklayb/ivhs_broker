@@ -21,7 +21,6 @@ COPY . .
 RUN mix deps.get --only ${MIX_ENV}
 RUN mix compile
 
-RUN cd assets && npm ci
 RUN mix assets.deploy
 
 # Create a release
@@ -30,7 +29,7 @@ RUN mkdir -p /opt/build && \
     cp -r _build/${MIX_ENV}/rel /opt/build
 
 # STEP 2 - Build application container
-FROM alpine:3.21
+FROM alpine:3.24
 
 ARG APP_NAME
 ENV APP_NAME=${APP_NAME}
@@ -41,8 +40,6 @@ ENV ROOT_FOLDER=/opt
 RUN apk --no-cache update && \
     apk --no-cache upgrade && \
     apk --no-cache add bash \
-        openssl \
-        openssl-dev \
         libgcc \
         libstdc++ \
         sqlite

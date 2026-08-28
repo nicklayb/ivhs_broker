@@ -10,7 +10,7 @@ echo:
 	echo {{docker_remote_image}}
 
 docker-build:
-	docker build -f ./dockerfiles/Dockerfile -t {{docker_image}} .
+	docker build -t {{docker_image}} .
 
 docker-tag:
 	docker tag {{docker_image}} {{docker_remote_image}}
@@ -24,6 +24,7 @@ docker-run:
 	docker run \
 		-e SECRET_KEY_BASE=$SECRET_KEY_BASE \
 		-e LIVE_VIEW_SALT=$LIVE_VIEW_SALT \
+	  -e MQTT_HOST=$MQTT_HOST \
 		-p 4001:4000 \
 		{{docker_image}}
 
