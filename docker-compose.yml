@@ -8,5 +8,9 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
 
+  mqtt:
+    image: eclipse-mosquitto
+    ports:
+      - "1883:1883"
 volumes:
   db:

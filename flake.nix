@@ -15,6 +15,7 @@
         pkgs = import nixpkgs {
           inherit system;
         };
+        systemSpecificDeps = if pkgs.stdenv.isLinux then [ pkgs.inotify-tools ] else [ ];
       in
       {
         devShells.default = pkgs.mkShell {
@@ -23,11 +24,11 @@
             pkgs.beam28Packages.erlang
             pkgs.beam28Packages.elixir-ls
             pkgs.direnv
-            pkgs.inotify-tools
             pkgs.just
             pkgs.tailwindcss_4
             pkgs.esbuild
-          ];
+          ]
+          ++ systemSpecificDeps;
 
           shellHook = ''
             export MIX_HOME=$PWD/.nix-mix
