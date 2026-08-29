@@ -27,3 +27,7 @@ config :ivhs_broker, IvhsBroker.Mqtt,
   client_id: Box.Config.get("MQTT_CLIENT_ID", default: "ivhs"),
   username: Box.Config.get("MQTT_USERNAME"),
   password: Box.Config.get("MQTT_PASSWORD")
+
+config :ivhs_broker, IvhsBroker.Client.Plex,
+  host: Box.Config.get("PLEX_HOST"),
+  token: Box.Config.get("PLEX_TOKEN")

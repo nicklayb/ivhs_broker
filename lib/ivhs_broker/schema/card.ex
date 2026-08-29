@@ -1,7 +1,10 @@
 defmodule IvhsBroker.Schema.Card do
   use IvhsBroker, :schema
 
+  import PolymorphicEmbed, only: [polymorphic_embeds_one: 2]
+
   alias IvhsBroker.Schema.Card
+  alias IvhsBroker.Schema.Card.Target
   alias IvhsBroker.Schema.CardRead
 
   @primary_key {:uid, :string, autogenerate: false}
@@ -11,6 +14,15 @@ defmodule IvhsBroker.Schema.Card do
     has_many(:card_reads, CardRead,
       foreign_key: :card_uid,
       preload_order: [desc: :inserted_at]
+    )
+
+    polymorphic_embeds_one(:target,
+      types: [
+        raw: Target.Raw,
+        plex: Target.Plex
+      ],
+      on_type_not_found: :changeset_error,
+      on_replace: :update
     )
 
     timestamps()
@@ -30,6 +42,12 @@ defmodule IvhsBroker.Schema.Card do
     card
     |> Ecto.Changeset.cast(params, @optional)
     |> validate_label()
+  end
+
+  def target_changeset(%Card{} = card, params) do
+    card
+    |> Ecto.Changeset.cast(params, [])
+    |> PolymorphicEmbed.cast_polymorphic_embed(:target, required: true)
   end
 
   defp validate_label(%Ecto.Changeset{valid?: true} = changeset) do

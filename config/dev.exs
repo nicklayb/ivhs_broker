@@ -6,7 +6,7 @@ config :ivhs_broker, IvhsBroker.Repo,
 
 config :ivhs_broker, IvhsBrokerWeb.Endpoint,
   check_origin: false,
-  # code_reloader: true,
+  code_reloader: true,
   debug_errors: true,
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:ivhs_broker, ~w(--sourcemap=inline --watch)]},

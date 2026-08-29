@@ -23,6 +23,7 @@
             pkgs.beam28Packages.elixir_1_20
             pkgs.beam28Packages.erlang
             pkgs.beam28Packages.elixir-ls
+            pkgs.beam28Packages.expert
             pkgs.direnv
             pkgs.just
             pkgs.tailwindcss_4
