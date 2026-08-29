@@ -3,13 +3,12 @@ defmodule IvhsBroker.EventEmitter do
 
   require Logger
 
+  alias IvhsBroker.Schema.Card
   alias IvhsBroker.Schema.CardRead
 
   alias IvhsBroker.Mqtt.Client, as: MqttClient
 
   @default_name __MODULE__
-
-  @debounce_timer :timer.seconds(3)
 
   def start_link(args) do
     GenServer.start_link(__MODULE__, args, name: Keyword.get(args, :name, @default_name))
@@ -20,15 +19,13 @@ defmodule IvhsBroker.EventEmitter do
     {:ok, %{timer: nil}}
   end
 
-  @medias %{
-    "047F1A7ED52A81" => "Toy Story",
-    "04289161D12A81" => "Cars",
-    "04F94B73D42A81" => "Moana"
-  }
-
   def handle_info({:publish, topic, payload}, state) do
-    with {:error, _} = error <- MqttClient.publish(topic, JSON.encode!(payload), []) do
-      Logger.error("[#{inspect(__MODULE__)}] [error] #{inspect(error)}")
+    case MqttClient.publish(topic, JSON.encode!(payload), []) do
+      {:error, _} = error ->
+        Logger.error("[#{inspect(__MODULE__)}] [error] #{inspect(error)}")
+
+      :ok ->
+        Logger.info("[#{inspect(__MODULE__)}] [published] #{inspect(payload)}")
     end
 
     {:noreply, %{state | timer: nil}}
@@ -38,27 +35,26 @@ defmodule IvhsBroker.EventEmitter do
         %Box.PubSub.Message{
           topic: "card_reads",
           message: :new_entry,
-          params: %CardRead{card_uid: uid, state: card_state} = card_read
+          params: %CardRead{card: %Card{target: %_{}} = card, state: card_state} = card_read
         },
         state
-      )
-      when is_map_key(@medias, uid) do
+      ) do
     Logger.info(
       "[#{inspect(__MODULE__)}] [emit] [card: #{card_read.card_uid}] [device: #{card_read.device_reader_name}] #{card_state}"
     )
-
-    media = Map.get(@medias, card_read.card_uid)
 
     state =
       case {state.timer, card_state} do
         {nil, :inserted} ->
           Logger.debug("[#{inspect(__MODULE__)}] inserted")
 
+          payload = Card.to_payload(card)
+
           timer =
             Process.send_after(
               self(),
-              {:publish, "ivhs/start", %{library: "Enfants", media: media, media_type: "MOVIE"}},
-              @debounce_timer
+              {:publish, "ivhs/start", payload},
+              debounce_timer()
             )
 
           %{state | timer: timer}
@@ -79,4 +75,10 @@ defmodule IvhsBroker.EventEmitter do
   end
 
   def handle_info(_, state), do: {:noreply, state}
+
+  defp debounce_timer do
+    :ivhs_broker
+    |> Application.fetch_env!(__MODULE__)
+    |> Keyword.fetch!(:debounce_timer)
+  end
 end

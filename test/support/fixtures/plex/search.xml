@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MediaContainer size="17">
+<Hub title="Albums" type="album" hubIdentifier="album" context="" size="2" more="0" style="shelf">
+<Directory librarySectionTitle="Music" score="0.92000" ratingKey="145298" key="/library/metadata/145298/children" parentRatingKey="145297" guid="local://145298" parentGuid="plex://artist/5d07bc03403c6402904aaa14" type="album" title="Cars" parentKey="/library/metadata/145297" librarySectionID="5" librarySectionKey="/library/sections/5" parentTitle="Pixar" summary="" index="1" viewCount="104" skipCount="32" lastViewedAt="1784665023" year="2006" thumb="/library/metadata/145298/thumb/1770485430" parentThumb="/library/metadata/145297/thumb/1787211288" originallyAvailableAt="2006-01-01" addedAt="1770485429" updatedAt="1770485430" loudnessAnalysisVersion="2" musicAnalysisVersion="1">
+<Image alt="Cars" type="coverPoster" url="/library/metadata/145298/thumb/1770485430" />
+<UltraBlurColors topLeft="4f191b" topRight="a91719" bottomRight="8f0f10" bottomLeft="ae1514" />
+<Genre tag="Soundtrack" />
+</Directory>
+<Directory librarySectionTitle="Music" score="0.72000" ratingKey="148048" key="/library/metadata/148048/children" parentRatingKey="56894" guid="local://148048" parentGuid="plex://artist/5edc680bc5e64fcc10115b1f" type="album" title="Cars 3 Soundtrack" parentKey="/library/metadata/56894" librarySectionID="5" librarySectionKey="/library/sections/5" parentTitle="Various Artists" summary="" index="1" viewCount="41" skipCount="9" lastViewedAt="1786718801" year="2017" originallyAvailableAt="2017-01-01" addedAt="1774651125" loudnessAnalysisVersion="2" musicAnalysisVersion="1">
+<Genre tag="Soundtrack" />
+</Directory>
+</Hub>
+<Hub title="Movies" type="movie" hubIdentifier="movie" context="" size="3" more="0" style="shelf">
+<Video librarySectionTitle="Enfants" score="0.93080" ratingKey="2195" key="/library/metadata/2195" guid="plex://movie/5d7768285af944001f1f7091" slug="cars" studio="Pixar" type="movie" title="Cars" librarySectionID="4" librarySectionKey="/library/sections/4" contentRating="G" contentRatingAge="5" summary="While traveling to California for the dispute of the final race of the Piston Cup against The King and Chick Hicks, the famous Lightning McQueen accidentally damages the road of the small town Radiator Springs and is sentenced to repair it. Lightning McQueen has to work hard and finds friendship and love in the simple locals, changing its values during his stay in the small town and becoming a true winner." rating="7.4" audienceRating="8.0" userRating="10.0" viewOffset="849728" viewCount="28" skipCount="3" lastViewedAt="1788009714" lastRatedAt="1777505258" year="2006" tagline="Ahhh... it&#39;s got that new movie smell." thumb="/library/metadata/2195/thumb/1784881869" art="/library/metadata/2195/art/1784881869" duration="6996384" originallyAvailableAt="2006-06-08" addedAt="1510417764" updatedAt="1784881869" audienceRatingImage="rottentomatoes://image.rating.upright" chapterSource="media" primaryExtraKey="/library/metadata/74846" ratingImage="rottentomatoes://image.rating.ripe">
+<Media id="262540" duration="6996384" bitrate="3930" width="1920" height="800" aspectRatio="2.35" audioChannels="6" audioCodec="ac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" videoProfile="high" hasVoiceActivity="0">
+<Part id="276505" key="/library/parts/276505/1761049673/file.mkv" duration="6996384" file="/Enfants/Cars (2006)/Cars 2006-[FR+EN].mkv" size="3437074144" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Cars" type="coverPoster" url="/library/metadata/2195/thumb/1784881869" />
+<Image alt="Cars" type="background" url="/library/metadata/2195/art/1784881869" />
+<Image alt="Cars" type="clearLogo" url="/library/metadata/2195/clearLogo/1784881869" />
+<Image alt="Cars" type="backgroundSquare" url="/library/metadata/2195/squareArt/1784881869" />
+<UltraBlurColors topLeft="11333a" topRight="13373e" bottomRight="541919" bottomLeft="5e221c" />
+<Genre tag="Comedy" />
+<Genre tag="Animation" />
+<Country tag="United States of America" />
+<Director tag="John Lasseter" />
+<Writer tag="Dan Fogelman" />
+<Writer tag="Joe Ranft" />
+<Role tag="Owen Wilson" />
+<Role tag="Paul Newman" />
+<Role tag="Bonnie Hunt" />
+</Video>
+<Video librarySectionTitle="Enfants" score="0.73069" ratingKey="142951" key="/library/metadata/142951" guid="plex://movie/5d776ab423d5a3001f507d91" slug="cars-3" studio="Pixar" type="movie" title="Cars 3" librarySectionID="4" librarySectionKey="/library/sections/4" contentRating="G" contentRatingAge="6" summary="Blindsided by a new generation of blazing-fast racers, the legendary Lightning McQueen is suddenly pushed out of the sport he loves. To get back in the game, he will need the help of an eager young race technician with her own plan to win, inspiration from the late Fabulous Hudson Hornet, and a few unexpected turns. Proving that #95 isn&#39;t through yet will test the heart of a champion on Piston Cup Racing&#39;s biggest stage!" rating="7.0" audienceRating="6.9" viewOffset="3551548" viewCount="36" skipCount="1" lastViewedAt="1787499414" year="2017" tagline="From this moment, everything will change." thumb="/library/metadata/142951/thumb/1785136932" art="/library/metadata/142951/art/1785136932" duration="6145024" originallyAvailableAt="2017-06-15" addedAt="1761481934" updatedAt="1785136932" audienceRatingImage="rottentomatoes://image.rating.upright" chapterSource="media" primaryExtraKey="/library/metadata/142952" ratingImage="rottentomatoes://image.rating.ripe">
+<Media id="262632" duration="6145024" bitrate="3930" width="1920" height="804" aspectRatio="2.35" audioChannels="6" audioCodec="ac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" videoProfile="high" hasVoiceActivity="0">
+<Part id="276597" key="/library/parts/276597/1761481929/file.mkv" duration="6145024" file="/Enfants/Cars III (2017)/Cars III 2017.mkv" size="3018390690" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Cars 3" type="coverPoster" url="/library/metadata/142951/thumb/1785136932" />
+<Image alt="Cars 3" type="background" url="/library/metadata/142951/art/1785136932" />
+<Image alt="Cars 3" type="clearLogo" url="/library/metadata/142951/clearLogo/1785136932" />
+<Image alt="Cars 3" type="backgroundSquare" url="/library/metadata/142951/squareArt/1785136932" />
+<UltraBlurColors topLeft="11323d" topRight="a9231b" bottomRight="963731" bottomLeft="7e461c" />
+<Genre tag="Family" />
+<Genre tag="Animation" />
+<Country tag="United States of America" />
+<Director tag="Brian Fee" />
+<Writer tag="Christian Roman" />
+<Writer tag="Bob Peterson" />
+<Role tag="Owen Wilson" />
+<Role tag="Cristela Alonzo" />
+<Role tag="Chris Cooper" />
+</Video>
+<Video librarySectionTitle="Enfants" score="0.73050" ratingKey="142920" key="/library/metadata/142920" guid="plex://movie/5d77688833f255001e858e69" slug="cars-2" studio="Pixar" type="movie" title="Cars 2" librarySectionID="4" librarySectionKey="/library/sections/4" contentRating="G" contentRatingAge="8" summary="Star race car Lightning McQueen and his pal Mater head overseas to compete in the World Grand Prix race. But the road to the championship becomes rocky as Mater gets caught up in an intriguing adventure of his own: international espionage." rating="4.0" audienceRating="5.0" viewOffset="4896230" viewCount="26" lastViewedAt="1787408696" year="2011" tagline="The mission begins." thumb="/library/metadata/142920/thumb/1785136932" art="/library/metadata/142920/art/1785136932" duration="6421504" originallyAvailableAt="2011-06-22" addedAt="1761481754" updatedAt="1785136932" audienceRatingImage="rottentomatoes://image.rating.spilled" chapterSource="media" primaryExtraKey="/library/metadata/142921" ratingImage="rottentomatoes://image.rating.rotten">
+<Media id="262541" duration="6421504" bitrate="3926" width="1920" height="802" aspectRatio="2.35" audioChannels="6" audioCodec="ac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" videoProfile="high" hasVoiceActivity="0">
+<Part id="276506" key="/library/parts/276506/1761481749/file.mkv" duration="6421504" file="/Enfants/Cars II (2011)/Cars II 2011.mkv" size="3151644880" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Cars 2" type="coverPoster" url="/library/metadata/142920/thumb/1785136932" />
+<Image alt="Cars 2" type="background" url="/library/metadata/142920/art/1785136932" />
+<Image alt="Cars 2" type="clearLogo" url="/library/metadata/142920/clearLogo/1785136932" />
+<Image alt="Cars 2" type="backgroundSquare" url="/library/metadata/142920/squareArt/1785136932" />
+<UltraBlurColors topLeft="033729" topRight="0e6d58" bottomRight="096d5b" bottomLeft="226d50" />
+<Genre tag="Comedy" />
+<Genre tag="Animation" />
+<Country tag="United States of America" />
+<Director tag="John Lasseter" />
+<Writer tag="Ben Queen" />
+<Writer tag="Nick Sung" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Owen Wilson" />
+<Role tag="Michael Caine" />
+</Video>
+</Hub>
+<Hub title="Shows" type="show" hubIdentifier="show" context="" size="1" more="0" style="shelf">
+<Directory librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.73074" ratingKey="146041" key="/library/metadata/146041/children" guid="plex://show/5f6c8d565882ed0044adf59d" slug="cars-on-the-road-1" studio="Pixar" type="show" title="Cars : Sur la route" librarySectionID="2" librarySectionKey="/library/sections/2" originalTitle="Cars on the Road" contentRating="TV-G" contentRatingAge="6" summary="Flash McQueen et son meilleur ami Martin quittent Radiator Springs pour un voyage &#224; travers le pays pour aller retrouver la s&#339;ur de Martin. En chemin, chaque arr&#234;t est une aventure &#224; part enti&#232;re. Au programme : des attractions touristiques d&#233;lirantes en bord de route et de nouveaux personnages hauts en couleur." index="1" audienceRating="7.4" viewCount="37" skipCount="5" lastViewedAt="1774820047" year="2022" tagline="Neuf nouveaux &#233;pisodes. Un road trip &#233;pique." thumb="/library/metadata/146041/thumb/1785572565" art="/library/metadata/146041/art/1785572565" duration="720000" originallyAvailableAt="2022-09-07" leafCount="9" viewedLeafCount="9" childCount="1" addedAt="1772461678" updatedAt="1785572565" audienceRatingImage="themoviedb://image.rating" primaryExtraKey="/library/metadata/146052">
+<Image alt="Cars : Sur la route" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="Cars : Sur la route" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="Cars : Sur la route" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="090416" topRight="06061c" bottomRight="0f1330" bottomLeft="170b26" />
+<Genre tag="Animation" />
+<Genre tag="Com&#233;die" />
+<Country tag="United States of America" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Quinta Brunson" />
+<Location path="/Serietele/Cars On The Road {tvdb-412436}" />
+</Directory>
+</Hub>
+<Hub title="Actors" type="actor" hubIdentifier="actor" context="" size="20" more="0" style="shelf">
+<Directory key="/library/sections/1/all?actor=349860" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="349860" filter="actor=349860" tag="Carson Grant" tagType="6" tagKey="5d7768397228e5001f1df438" count="2" />
+<Directory key="/library/sections/1/all?actor=641141" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="641141" filter="actor=641141" tag="Carsten N&#248;rgaard" tagType="6" tagKey="5d776826880197001ec906c6" thumb="https://metadata-static.plex.tv/9/people/9e45df717f4c8ae355b529fce29d85ba.jpg" count="3" />
+<Directory key="/library/sections/1/all?actor=835629" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="835629" filter="actor=835629" tag="Carson Bokenfohr" tagType="6" tagKey="5ee1ab42b64c2600408001ca" thumb="https://metadata-static.plex.tv/people/5ee1ab42b64c2600408001ca.jpg" count="1" />
+<Directory key="/library/sections/1/all?actor=324277" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="324277" filter="actor=324277" tag="Carson Manning" tagType="6" tagKey="5d776835961905001eb941a8" thumb="https://metadata-static.plex.tv/people/5d776835961905001eb941a8.jpg" count="3" />
+<Directory key="/library/sections/1/all?actor=322948" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="322948" filter="actor=322948" tag="Carsten Hayes" tagType="6" tagKey="5d776828151a60001f24ae85" thumb="https://metadata-static.plex.tv/4/people/4e398084d01c64cf25bcfe2278abbe37.jpg" count="3" />
+<Directory key="/library/sections/1/all?actor=859689" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="859689" filter="actor=859689" tag="Carson McCalley" tagType="6" tagKey="6a0c0793aaf75168d20a5edd" thumb="https://metadata-static.plex.tv/d/people/da62feeb5ec5a3d5ab7fbe44a5297328.jpg" count="1" />
+<Directory key="/library/sections/1/all?actor=861455" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="861455" filter="actor=861455" tag="Carsten Koch" tagType="6" tagKey="6a0c81ad593dab57b8c158c8" count="1" />
+<Directory key="/library/sections/1/all?actor=757477" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="757477" filter="actor=757477" tag="Carsh&#233;nah Jefferson" tagType="6" tagKey="687fc6c0ca9987e826826eb0" thumb="https://metadata-static.plex.tv/8/people/8f1be345ac2058d4c29bda60a129332d.jpg" count="2" />
+<Directory key="/library/sections/1/all?actor=326342" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="326342" filter="actor=326342" tag="Carson Daly" tagType="6" tagKey="5d77683aeb5d26001f1e1d92" thumb="https://metadata-static.plex.tv/3/people/399a49923d5942d2c1140388530c9181.jpg" count="2" />
+<Directory key="/library/sections/1/all?actor=474722" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="474722" filter="actor=474722" tag="Carson Nattrass" tagType="6" tagKey="5d77687661141d001fb1b43c" thumb="https://metadata-static.plex.tv/7/people/734207d1ead0609cb31a083c51dcca44.jpg" count="2" />
+<Directory key="/library/sections/1/all?actor=334382" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.52000" type="tag" id="334382" filter="actor=334382" tag="Carsen Rowe" tagType="6" tagKey="5ee05b29c57abe00428943e0" thumb="https://metadata-static.plex.tv/people/5ee05b29c57abe00428943e0.jpg" count="2" />
+<Directory key="/library/sections/1/all?actor=331826" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="331826" filter="actor=331826" tag="Silas Carson" tagType="6" tagKey="5d77682a61141d001fb13c5b" thumb="https://metadata-static.plex.tv/5/people/517d47b7f1dee1c7c83fa868cd8b62ff.jpg" count="6" />
+<Directory key="/library/sections/1/all?actor=705642" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="705642" filter="actor=705642" tag="Rachelle Carson-Begley" tagType="6" tagKey="5d77682c61141d001fb14226" thumb="https://metadata-static.plex.tv/f/people/f32de0894c82fa23e29d2329c1b50383.jpg" count="2" />
+<Directory key="/library/sections/1/all?actor=323831" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="323831" filter="actor=323831" tag="Jonah Carson" tagType="6" tagKey="5d776c8bfb0d55001f58af88" thumb="https://metadata-static.plex.tv/people/5d776c8bfb0d55001f58af88.jpg" count="2" />
+<Directory key="/library/sections/1/all?actor=870592" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="870592" filter="actor=870592" tag="Dane Carson" tagType="6" tagKey="5d77683deb5d26001f1e2952" thumb="https://metadata-static.plex.tv/people/5d77683deb5d26001f1e2952.jpg" count="1" />
+<Directory key="/library/sections/1/all?actor=768575" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="768575" filter="actor=768575" tag="Jaden Carson Baker" tagType="6" tagKey="62bc62c17184574da566889d" thumb="https://metadata-static.plex.tv/8/people/822d49439dc8b08af03c103dc2d482c3.jpg" count="2" />
+<Directory key="/library/sections/1/all?actor=312493" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="312493" filter="actor=312493" tag="Terrence &#39;T.C.&#39; Carson" tagType="6" tagKey="5d77682de6d55c002040ba37" thumb="https://metadata-static.plex.tv/9/people/91552a4179f1c8d2ad66418ac860c622.jpg" count="3" />
+<Directory key="/library/sections/1/all?actor=339269" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="339269" filter="actor=339269" tag="Price Carson" tagType="6" tagKey="5d776828961905001eb917bf" thumb="https://metadata-static.plex.tv/1/people/1f9aa013ce3b10e1eafd1d1a73637fe7.jpg" count="3" />
+<Directory key="/library/sections/1/all?actor=830513" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="830513" filter="actor=830513" tag="Leon C. Carswell" tagType="6" tagKey="5d7768415af944001f1fc847" count="1" />
+<Directory key="/library/sections/1/all?actor=827064" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="827064" filter="actor=827064" tag="Wendy Carson" tagType="6" tagKey="5f3f939304a8650040944dfc" count="1" />
+</Hub>
+<Hub title="Episodes" type="episode" hubIdentifier="episode" context="" size="10" more="0" style="shelf">
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71075" ratingKey="146045" key="/library/metadata/146045" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/62e93c572bacebdc0d16fa70" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="La fi&#232;vre de la vitesse" titleSort="fievre de la vitesse" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Quand Martin devient une voiture de course, il atteint des records de vitesse jamais vus." index="3" parentIndex="1" audienceRating="7.5" viewCount="5" lastViewedAt="1774819423" year="2022" thumb="/library/metadata/146045/thumb/1779521208" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="501152" originallyAvailableAt="2022-09-08" addedAt="1772461679" updatedAt="1779521208" audienceRatingImage="themoviedb://image.rating">
+<Media id="266678" duration="501152" bitrate="8029" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280643" key="/library/parts/280643/1772491584/file.mkv" duration="501152" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e03.mkv" size="502964094" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="La fi&#232;vre de la vitesse" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="La fi&#232;vre de la vitesse" type="snapshot" url="/library/metadata/146045/thumb/1779521208" />
+<Image alt="La fi&#232;vre de la vitesse" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="La fi&#232;vre de la vitesse" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="4b1d1b" topRight="4b54a4" bottomRight="732532" bottomLeft="6d2b34" />
+<Director tag="Brian Fee" />
+<Writer tag="Steve Purcell" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Kathy Holly" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71070" ratingKey="146051" key="/library/metadata/146051" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/62e93c552bacebdc0d16fa64" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="Le mariage" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Au mariage de sa soeur, Martin doit affronter un pass&#233; qu&#39;il pensait avoir laiss&#233; derri&#232;re lui." index="9" parentIndex="1" audienceRating="7.0" viewCount="4" lastViewedAt="1774817976" year="2022" thumb="/library/metadata/146051/thumb/1779437425" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="636224" originallyAvailableAt="2022-09-08" addedAt="1772461679" updatedAt="1779437425" audienceRatingImage="themoviedb://image.rating">
+<Media id="266684" duration="636224" bitrate="8608" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280649" key="/library/parts/280649/1772491585/file.mkv" duration="636224" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e09.mkv" size="684538931" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Le mariage" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="Le mariage" type="snapshot" url="/library/metadata/146051/thumb/1779437425" />
+<Image alt="Le mariage" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="Le mariage" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="4c1c20" topRight="50275d" bottomRight="873c38" bottomLeft="924040" />
+<Director tag="Bobby Podesta" />
+<Writer tag="Steve Purcell" />
+<Writer tag="Bobby Podesta" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Cristela Alonzo" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71067" ratingKey="146046" key="/library/metadata/146046" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/62e93c562bacebdc0d16fa6e" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="La l&#233;gende" titleSort="legende" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Martin et Flash rejoignent des chasseurs de cr&#233;atures dans leur traque d&#39;un monstre myst&#233;rieux." index="4" parentIndex="1" audienceRating="6.7" viewCount="4" lastViewedAt="1774819993" year="2022" thumb="/library/metadata/146046/thumb/1779602817" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="565344" originallyAvailableAt="2022-09-08" addedAt="1772461679" updatedAt="1779602817" audienceRatingImage="themoviedb://image.rating">
+<Media id="266679" duration="565344" bitrate="8017" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280644" key="/library/parts/280644/1772491584/file.mkv" duration="565344" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e04.mkv" size="566525086" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="La l&#233;gende" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="La l&#233;gende" type="snapshot" url="/library/metadata/146046/thumb/1779602817" />
+<Image alt="La l&#233;gende" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="La l&#233;gende" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="142f4b" topRight="3b4f94" bottomRight="3a393b" bottomLeft="923c54" />
+<Director tag="Brian Fee" />
+<Writer tag="Steve Purcell" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Quinta Brunson" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71067" ratingKey="146044" key="/library/metadata/146044" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/62e93c572bacebdc0d16fa72" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="Extinction des phares" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Le duo Flash-Martin, tremp&#233; jusqu&#39;au moteur, arrive dans un h&#244;tel effrayant o&#249; Flash est tourment&#233;." index="2" parentIndex="1" audienceRating="6.7" viewCount="4" skipCount="1" lastViewedAt="1774818909" year="2022" thumb="/library/metadata/146044/thumb/1779519712" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="465952" originallyAvailableAt="2022-09-08" addedAt="1772461679" updatedAt="1779519712" audienceRatingImage="themoviedb://image.rating">
+<Media id="266677" duration="465952" bitrate="7892" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280642" key="/library/parts/280642/1772491584/file.mkv" duration="465952" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e02.mkv" size="459681577" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Extinction des phares" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="Extinction des phares" type="snapshot" url="/library/metadata/146044/thumb/1779519712" />
+<Image alt="Extinction des phares" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="Extinction des phares" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="123431" topRight="276a66" bottomRight="1a4055" bottomLeft="2e6386" />
+<Director tag="Steve Purcell" />
+<Writer tag="Steve Purcell" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Tania Gunadi" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71066" ratingKey="146050" key="/library/metadata/146050" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/62e93c552bacebdc0d16fa66" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="Des ennuis sur la route" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Des r&#244;deurs de la route enl&#232;vent Flash et Martin, les for&#231;ant &#224; combattre dans le C&#244;ne du Tonnerre." index="8" parentIndex="1" audienceRating="6.6" viewCount="4" skipCount="3" lastViewedAt="1774817380" year="2022" thumb="/library/metadata/146050/thumb/1779516277" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="467776" originallyAvailableAt="2022-09-08" addedAt="1772461679" updatedAt="1779516277" audienceRatingImage="themoviedb://image.rating">
+<Media id="266683" duration="467776" bitrate="8260" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280648" key="/library/parts/280648/1772491585/file.mkv" duration="467776" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e08.mkv" size="482977961" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Des ennuis sur la route" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="Des ennuis sur la route" type="snapshot" url="/library/metadata/146050/thumb/1779516277" />
+<Image alt="Des ennuis sur la route" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="Des ennuis sur la route" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="4c1e0c" topRight="7b2d20" bottomRight="a1321d" bottomLeft="693521" />
+<Director tag="Steve Purcell" />
+<Writer tag="Steve Purcell" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Toks Olagundoye" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71065" ratingKey="146049" key="/library/metadata/146049" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/62e93c562bacebdc0d16fa68" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="Film de s&#233;rie B" titleSort="Film de serie B" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Flash et Martin sont sur un plateau de tournage et int&#232;grent le casting d&#39;un film de zombies sci-fi." index="7" parentIndex="1" audienceRating="6.5" viewCount="4" lastViewedAt="1774816890" year="2022" thumb="/library/metadata/146049/thumb/1779437122" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="573248" originallyAvailableAt="2022-09-08" addedAt="1772461679" updatedAt="1779437122" audienceRatingImage="themoviedb://image.rating">
+<Media id="266682" duration="573248" bitrate="7895" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280647" key="/library/parts/280647/1772491585/file.mkv" duration="573248" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e07.mkv" size="565737467" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Film de s&#233;rie B" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="Film de s&#233;rie B" type="snapshot" url="/library/metadata/146049/thumb/1779437122" />
+<Image alt="Film de s&#233;rie B" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="Film de s&#233;rie B" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="4a1f18" topRight="1d0706" bottomRight="a6281d" bottomLeft="ac1a15" />
+<Director tag="Brian Fee" />
+<Writer tag="Steve Purcell" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Quinta Brunson" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71064" ratingKey="146043" key="/library/metadata/146043" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/5fd52423618d00002df4fa5d" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="Le dino-parc" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Une visite au dino-parc se transforme en un cauchemar pr&#233;historique et angoissant." index="1" parentIndex="1" audienceRating="6.4" viewCount="6" skipCount="1" lastViewedAt="1774818583" year="2022" thumb="/library/metadata/146043/thumb/1779525414" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="513536" originallyAvailableAt="2022-09-08" addedAt="1772461678" updatedAt="1779525414" audienceRatingImage="themoviedb://image.rating">
+<Media id="266676" duration="513536" bitrate="8840" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280641" key="/library/parts/280641/1772491584/file.mkv" duration="513536" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e01.mkv" size="567459220" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Le dino-parc" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="Le dino-parc" type="snapshot" url="/library/metadata/146043/thumb/1779525414" />
+<Image alt="Le dino-parc" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="Le dino-parc" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="1f265f" topRight="294277" bottomRight="6d1d1b" bottomLeft="963f24" />
+<Director tag="Steve Purcell" />
+<Writer tag="Steve Purcell" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Bonnie Hunt" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71056" ratingKey="146048" key="/library/metadata/146048" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/62e93c562bacebdc0d16fa6a" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="Les camions" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Martin fait la connaissance d&#39;autres camions et ensemble, ils c&#233;l&#232;brent leur solidarit&#233; en chanson." index="6" parentIndex="1" audienceRating="5.6" viewCount="3" lastViewedAt="1774816360" year="2022" thumb="/library/metadata/146048/thumb/1779520425" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="365888" originallyAvailableAt="2022-09-08" addedAt="1772461679" updatedAt="1779520425" audienceRatingImage="themoviedb://image.rating">
+<Media id="266681" duration="365888" bitrate="8769" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280646" key="/library/parts/280646/1772491584/file.mkv" duration="365888" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e06.mkv" size="401047927" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Les camions" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="Les camions" type="snapshot" url="/library/metadata/146048/thumb/1779520425" />
+<Image alt="Les camions" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="Les camions" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="1c1a78" topRight="381e4d" bottomRight="492876" bottomLeft="4f39d1" />
+<Director tag="Bobby Podesta" />
+<Writer tag="Steve Purcell" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Hayden Bishop" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.71053" ratingKey="146047" key="/library/metadata/146047" parentRatingKey="146042" grandparentRatingKey="146041" guid="plex://episode/62e93c562bacebdc0d16fa6c" parentGuid="plex://season/62f3121afaad68750d8de953" grandparentGuid="plex://show/5f6c8d565882ed0044adf59d" grandparentSlug="cars-on-the-road-1" type="episode" title="Que le spectacle commence" grandparentKey="/library/metadata/146041" parentKey="/library/metadata/146042" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Cars : Sur la route" parentTitle="Season 1" originalTitle="Cars on the Road" contentRating="TV-G" summary="Flash se retrouve face &#224; sa peur des clowns et d&#233;couvre les talents cach&#233;s d&#39;Ivy, sa nouvelle amie." index="5" parentIndex="1" audienceRating="5.3" viewCount="3" lastViewedAt="1774815955" year="2022" thumb="/library/metadata/146047/thumb/1779518043" art="/library/metadata/146041/art/1785572565" parentThumb="/library/metadata/146042/thumb/1772461681" grandparentThumb="/library/metadata/146041/thumb/1785572565" grandparentArt="/library/metadata/146041/art/1785572565" duration="502656" originallyAvailableAt="2022-09-08" addedAt="1772461679" updatedAt="1779518043" audienceRatingImage="themoviedb://image.rating">
+<Media id="266680" duration="502656" bitrate="8067" width="1920" height="1080" aspectRatio="1.78" audioChannels="6" audioCodec="eac3" videoCodec="h264" videoResolution="1080" container="mkv" videoFrameRate="24p" audioProfile="dolby digital plus + dolby atmos" videoProfile="high" hasVoiceActivity="0">
+<Part id="280645" key="/library/parts/280645/1772491584/file.mkv" duration="502656" file="/Serietele/Cars On The Road {tvdb-412436}/Saison 1/s01e05.mkv" size="506873119" audioProfile="dolby digital plus + dolby atmos" container="mkv" videoProfile="high" />
+</Media>
+<Image alt="Que le spectacle commence" type="coverPoster" url="/library/metadata/146041/thumb/1785572565" />
+<Image alt="Que le spectacle commence" type="snapshot" url="/library/metadata/146047/thumb/1779518043" />
+<Image alt="Que le spectacle commence" type="background" url="/library/metadata/146041/art/1785572565" />
+<Image alt="Que le spectacle commence" type="backgroundSquare" url="/library/metadata/146041/squareArt/1785572565" />
+<UltraBlurColors topLeft="4f181f" topRight="181f45" bottomRight="8c4732" bottomLeft="8d2c38" />
+<Director tag="Bobby Podesta" />
+<Writer tag="Steve Purcell" />
+<Role tag="Owen Wilson" />
+<Role tag="Larry the Cable Guy" />
+<Role tag="Quinta Brunson" />
+</Video>
+<Video librarySectionTitle="S&#233;rie t&#233;l&#233;" score="0.31000" ratingKey="126507" key="/library/metadata/126507" parentRatingKey="126506" grandparentRatingKey="126440" guid="plex://episode/5d9c130dcb3ffa001f1dbce8" parentGuid="plex://season/602e68e433eb76002d61b93d" grandparentGuid="plex://show/5d9c08713c3f87001f3501bc" grandparentSlug="how-its-made" type="episode" title="Cl&#233;s &#224; chocs pneumatiques, &#233;viers en marbre de culture, chips de plantain, stock-cars" titleSort="Cles a chocs pneumatiques, eviers en marbre de culture, chips de plantain, stock-cars" grandparentKey="/library/metadata/126440" parentKey="/library/metadata/126506" librarySectionID="2" librarySectionKey="/library/sections/2" grandparentTitle="Comment c&#39;est fait" parentTitle="Season 12" originalTitle="How It&#39;s Made" contentRating="TV-PG" summary="Dans cet &#233;pisode:&#xD;&#xA;          - Cl&#233;s &#224; Chocs Pneumatiques&#xD;&#xA;          - Lavabos en Similimarbre&#xD;&#xA;          - Croustilles de Banane Plantain&#xD;&#xA;          - Voitures de S&#233;rie NASCAR" index="1" parentIndex="12" year="2009" thumb="/library/metadata/126507/thumb/1779522505" art="/library/metadata/126440/art/1787989481" parentThumb="/library/metadata/126506/thumb/1708489018" grandparentThumb="/library/metadata/126440/thumb/1787989481" grandparentArt="/library/metadata/126440/art/1787989481" grandparentTheme="/library/metadata/126440/theme/1787989481" duration="1339944" originallyAvailableAt="2009-01-07" addedAt="1708489012" updatedAt="1779522505">
+<Media id="238655" duration="1339944" bitrate="1101" width="640" height="368" aspectRatio="1.78" audioChannels="2" audioCodec="mp3" videoCodec="mpeg4" videoResolution="sd" container="avi" videoFrameRate="NTSC" videoProfile="advanced simple" hasVoiceActivity="0">
+<Part id="249187" key="/library/parts/249187/1708488992/file.avi" duration="1339944" file="/Serietele/How It&#39;s Made {tvdb-79485}/Saison 12/s12e01.avi" size="184475648" container="avi" videoProfile="advanced simple" />
+</Media>
+<Image alt="Cl&#233;s &#224; chocs pneumatiques, &#233;viers en marbre de culture, chips de plantain, stock-cars" type="coverPoster" url="/library/metadata/126440/thumb/1787989481" />
+<Image alt="Cl&#233;s &#224; chocs pneumatiques, &#233;viers en marbre de culture, chips de plantain, stock-cars" type="snapshot" url="/library/metadata/126507/thumb/1779522505" />
+<Image alt="Cl&#233;s &#224; chocs pneumatiques, &#233;viers en marbre de culture, chips de plantain, stock-cars" type="background" url="/library/metadata/126440/art/1787989481" />
+<Image alt="Cl&#233;s &#224; chocs pneumatiques, &#233;viers en marbre de culture, chips de plantain, stock-cars" type="backgroundSquare" url="/library/metadata/126440/squareArt/1787989481" />
+<UltraBlurColors topLeft="4c1c19" topRight="991003" bottomRight="7c3431" bottomLeft="ad191a" />
+<Role tag="Lynne Adams" />
+<Role tag="Mark Tewksbury" />
+<Role tag="June Wallack" />
+</Video>
+</Hub>
+<Hub title="Tracks" type="track" hubIdentifier="track" context="" size="2" more="0" style="shelf">
+<Track librarySectionTitle="Music" score="0.71000" ratingKey="62209" key="/library/metadata/62209" parentRatingKey="62205" grandparentRatingKey="57176" guid="plex://track/5d07cdb5403c640290f4fda1" parentGuid="plex://album/5d07c171403c6402908458bb" grandparentGuid="plex://artist/5d07bbfd403c6402904a6418" parentStudio="Rhino" type="track" title="Cars Hiss by My Window" grandparentKey="/library/metadata/57176" parentKey="/library/metadata/62205" librarySectionID="5" librarySectionKey="/library/sections/5" grandparentTitle="The Doors" parentTitle="L.A. Woman" summary="" index="4" parentIndex="1" ratingCount="347224" viewCount="1" lastViewedAt="1782586337" parentYear="1971" thumb="/library/metadata/62205/thumb/1783760187" art="/library/metadata/57176/art/1787815616" parentThumb="/library/metadata/62205/thumb/1783760187" grandparentThumb="/library/metadata/57176/thumb/1787815616" grandparentArt="/library/metadata/57176/art/1787815616" duration="251704" addedAt="1597187919" updatedAt="1787815617" musicAnalysisVersion="1">
+<Media id="95988" duration="251704" bitrate="291" audioChannels="2" audioCodec="aac" container="mp4" optimizedForStreaming="1" audioProfile="lc" has64bitOffsets="0" hasVoiceActivity="0">
+<Part id="96703" key="/library/parts/96703/1779406436/file.m4a" duration="251704" file="/Music/iTunes/The Doors/L.A. Woman/04 Cars Hiss By My Window.m4a" size="9801042" audioProfile="lc" container="mp4" has64bitOffsets="0" hasThumbnail="1" optimizedForStreaming="1" />
+</Media>
+<Image alt="Cars Hiss by My Window" type="coverPoster" url="/library/metadata/57176/thumb/1787815616" />
+<Image alt="Cars Hiss by My Window" type="background" url="/library/metadata/57176/art/1787815616" />
+<Genre tag="Rock" />
+</Track>
+<Track librarySectionTitle="Music" score="0.31000" ratingKey="71811" key="/library/metadata/71811" parentRatingKey="71795" grandparentRatingKey="71794" guid="plex://track/5d07d51c403c640290896c47" parentGuid="plex://album/5d07c2d8403c64029091505f" grandparentGuid="plex://artist/5d07bc31403c6402904cf12b" type="track" title="Fast Cars &amp; Easy Women" grandparentKey="/library/metadata/71794" parentKey="/library/metadata/71795" librarySectionID="5" librarySectionKey="/library/sections/5" grandparentTitle="Me Mom &amp; Morgentaler" parentTitle="Shiva Space Machine: Gone Fission" summary="" index="16" parentIndex="1" ratingCount="15" parentYear="2007" thumb="/library/metadata/71795/thumb/1779695197" parentThumb="/library/metadata/71795/thumb/1779695197" grandparentThumb="/library/metadata/71794/thumb/1787900499" duration="212021" addedAt="1611140221" updatedAt="1779695197" musicAnalysisVersion="1">
+<Media id="104980" duration="212021" bitrate="279" audioChannels="2" audioCodec="aac" container="mp4" optimizedForStreaming="1" audioProfile="lc" has64bitOffsets="0" hasVoiceActivity="0">
+<Part id="105829" key="/library/parts/105829/1779400583/file.m4a" duration="212021" file="/Music/iTunes/Me Mom and Morgentaler/Shiva Space Machine, the Second Incarnation/16 Fast Cars.m4a" size="8091741" audioProfile="lc" container="mp4" has64bitOffsets="0" hasThumbnail="1" optimizedForStreaming="1" />
+</Media>
+<Image alt="Fast Cars &amp; Easy Women" type="coverPoster" url="/library/metadata/71794/thumb/1787900499" />
+<Genre tag="Pop" />
+</Track>
+</Hub>
+<Hub title="Artists" type="artist" hubIdentifier="artist" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Automatic Tags" type="autotag" hubIdentifier="autotag" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Photos" type="photo" hubIdentifier="photo" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Tags" type="tag" hubIdentifier="tag" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Photo Albums" type="photoalbum" hubIdentifier="photoalbum" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Directors" type="director" hubIdentifier="director" context="" size="1" more="0" style="shelf">
+<Directory key="/library/sections/1/all?director=480498" librarySectionID="1" librarySectionKey="/library/sections/1" librarySectionTitle="Films" librarySectionType="1" reason="section" reasonID="1" reasonTitle="Films" score="0.32000" type="tag" id="480498" filter="director=480498" tag="David Carson" tagType="4" tagKey="5d7768262e80df001ebdcdf9" thumb="https://metadata-static.plex.tv/7/people/7fdef77bddfd051733d19089a56a25c1.jpg" count="1" />
+</Hub>
+<Hub title="Genres" type="genre" hubIdentifier="genre" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Collections" type="collection" hubIdentifier="collection" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Playlists" type="playlist" hubIdentifier="playlist" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Shared" type="shared" hubIdentifier="shared" context="" size="0" more="0" style="shelf">
+</Hub>
+<Hub title="Places" type="place" hubIdentifier="place" context="" size="0" more="0" style="shelf">
+</Hub>
+</MediaContainer>

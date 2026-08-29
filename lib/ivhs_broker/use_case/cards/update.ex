@@ -1,7 +1,7 @@
 defmodule IvhsBroker.UseCase.Cards.Update do
+  use IvhsBroker, :use_case
   alias IvhsBroker.Cards
   alias IvhsBroker.Schema.Card
-  use IvhsBroker.UseCase
 
   @impl Box.UseCase
   def validate({card_uid, params}, _options) do

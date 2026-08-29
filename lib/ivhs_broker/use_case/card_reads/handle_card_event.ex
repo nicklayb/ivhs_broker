@@ -1,9 +1,9 @@
 defmodule IvhsBroker.UseCase.CardReads.HandleCardEvent do
+  use IvhsBroker, :use_case
   alias IvhsBroker.CardConsumer.UpdatedMessage
   alias IvhsBroker.Schema.Device
   alias IvhsBroker.Schema.Card
   alias IvhsBroker.Schema.CardRead
-  use IvhsBroker.UseCase
 
   @cache IvhsBroker.Cache
 

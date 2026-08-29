@@ -1,5 +1,5 @@
 defmodule IvhsBroker.Schema.Card.Target.Raw do
-  use IvhsBroker, :schema
+  use IvhsBroker.Schema.Card.Target
 
   alias IvhsBroker.Schema.Card.Target.Raw
 
@@ -15,5 +15,13 @@ defmodule IvhsBroker.Schema.Card.Target.Raw do
     raw
     |> Ecto.Changeset.cast(params, @required)
     |> Ecto.Changeset.validate_required(@required)
+  end
+
+  @impl IvhsBroker.Schema.Card.Target
+  def to_payload(%Raw{} = raw) do
+    %{
+      media_content_id: raw.payload,
+      media_content_type: raw.content_type
+    }
   end
 end

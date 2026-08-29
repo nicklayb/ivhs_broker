@@ -72,4 +72,12 @@ defmodule IvhsBroker.Schema.Card do
 
   def label(%Card{label: label}) when is_binary(label), do: label
   def label(%Card{uid: uid}), do: uid
+
+  def to_payload(%Card{target: nil}) do
+    nil
+  end
+
+  def to_payload(%Card{target: %module{} = struct}) do
+    module.to_payload(struct)
+  end
 end

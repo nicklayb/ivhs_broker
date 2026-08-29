@@ -31,3 +31,6 @@ config :ivhs_broker, IvhsBroker.Mqtt,
 config :ivhs_broker, IvhsBroker.Client.Plex,
   host: Box.Config.get("PLEX_HOST"),
   token: Box.Config.get("PLEX_TOKEN")
+
+config :ivhs_broker, IvhsBroker.EventEmitter,
+  debounce_timer: Box.Config.int("EMITTER_DEBOUNCE", default: "1000")

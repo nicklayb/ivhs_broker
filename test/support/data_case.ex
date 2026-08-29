@@ -24,6 +24,10 @@ defmodule IvhsBroker.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import IvhsBroker.DataCase
+
+      import Mox, only: [verify_on_exit!: 1]
+
+      require Mox
     end
   end
 

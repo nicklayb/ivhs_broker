@@ -7,3 +7,6 @@ config :ivhs_broker, IvhsBrokerWeb.Endpoint, server: false
 config :logger, level: :warning
 
 config :phoenix, :plug_init_mode, :runtime
+
+config :ivhs_broker, IvhsBroker.Http, adapter: IvhsBroker.HttpMock
+

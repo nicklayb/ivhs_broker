@@ -29,7 +29,6 @@ defmodule IvhsBroker.Mqtt.Adapter.Mqttx do
   @impl IvhsBroker.Mqtt.Adapter
   def publish(_client, topic, payload, options) do
     publish_options = Keyword.get(options, :publish_options, [])
-    IO.inspect(%{topic: topic, payload: payload, publish_options: publish_options})
     @client.publish(topic, payload, publish_options)
   end
 

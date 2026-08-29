@@ -31,7 +31,7 @@ defmodule IvhsBroker.MixProject do
     [
       {:argon2_elixir, "~> 4.0"},
       {:bandit, "~> 1.10.4"},
-      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.17.10"},
+      {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.18.1"},
       {:credo, "~> 1.7.18", runtime: false, only: ~w(dev test)a},
       {:ecto_sql, "~> 3.13"},
       {:postgrex, "~> 0.22"},
@@ -40,6 +40,7 @@ defmodule IvhsBroker.MixProject do
       {:plug, "~> 1.18", [optional: false]},
       {:jason, "~> 1.2"},
       {:phoenix, "~> 1.8.5"},
+      {:mox, "~> 1.3.0", only: :test},
       {:phoenix_live_view, "~> 1.1.28"},
       {:sweet_xml, "~> 0.7.5"},
       {:polymorphic_embed, "~> 5.0.6"},

@@ -28,7 +28,7 @@ config :esbuild,
   path: System.get_env("ESBUILD_PATH") || nil
 
 config :tailwind,
-  version: "4.2.3",
+  version: "4.3.3",
   ivhs_broker: [
     args: ~w(
       --input=assets/css/app.css
@@ -48,5 +48,7 @@ config :ivhs_broker, IvhsBroker.Mqtt,
   adapter:
     {IvhsBroker.Mqtt.Adapter.Mqttx,
      handler: IvhsBroker.Mqtt.Adapter.Mqttx.Handler, handler_state: %{}}
+
+config :ivhs_broker, IvhsBroker.Http, adapter: Box.Http.Adapter.Req
 
 import_config "#{config_env()}.exs"

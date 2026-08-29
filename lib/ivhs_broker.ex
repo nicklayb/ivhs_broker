@@ -12,6 +12,20 @@ defmodule IvhsBroker do
     end
   end
 
+  def embedded_schema do
+    quote do
+      use Ecto.Schema
+      @type t :: %__MODULE__{}
+      @primary_key false
+    end
+  end
+
+  def use_case do
+    quote do
+      use IvhsBroker.UseCase
+    end
+  end
+
   defmacro __using__(type) do
     apply(__MODULE__, type, [])
   end

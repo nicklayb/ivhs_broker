@@ -3,7 +3,8 @@ alias IvhsBroker.Schema.Card
 alias IvhsBroker.Schema.CardRead
 alias IvhsBroker.Repo
 
-import Ecto.Query
+alias IvhsBroker.Client.Plex
 
-# {:ok, client} = IvhsBroker.Mqtt.Client.connect()
-# {:ok, _} = IvhsBroker.Mqtt.Client.subscribe(client, "ivhs/card")
+alias IvhsBroker.UseCase.Cards, as: CardsUseCase
+
+import Ecto.Query

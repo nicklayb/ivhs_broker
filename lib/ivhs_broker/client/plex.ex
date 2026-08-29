@@ -36,7 +36,7 @@ defmodule IvhsBroker.Client.Plex do
         token
       )
 
-    with {:ok, %Req.Response{body: body}} <- Req.request(options) do
+    with {:ok, _, %Box.Http.Response{body: body}} <- IvhsBroker.Http.request_200(options) do
       {:ok, decode_xml(body, decoder)}
     end
   end

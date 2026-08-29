@@ -1,9 +1,7 @@
 defmodule IvhsBroker.Schema.Card.Target.Plex do
-  use IvhsBroker, :schema
+  use IvhsBroker.Schema.Card.Target
 
   alias IvhsBroker.Schema.Card.Target.Plex
-
-  @primary_key false
 
   embedded_schema do
     field(:library, :string)
@@ -35,10 +33,19 @@ defmodule IvhsBroker.Schema.Card.Target.Plex do
       |> Enum.join(" - ")
 
     %{
+      __type__: "plex",
       title: title,
       cover: art,
       library: library_title,
       rating_key: rating_key
+    }
+  end
+
+  @impl IvhsBroker.Schema.Card.Target
+  def to_payload(%Plex{} = plex) do
+    %{
+      media_content_id: JSON.encode!(%{library_name: plex.library, id: plex.rating_key}),
+      media_content_type: "movie"
     }
   end
 end
