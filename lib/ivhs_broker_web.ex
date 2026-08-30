@@ -69,6 +69,8 @@ defmodule IvhsBrokerWeb do
       alias IvhsBrokerWeb.Components
       alias IvhsBrokerWeb.Components.Layouts
       import IvhsBrokerWeb.Helpers
+      import PolymorphicEmbed.HTML.Component
+      import PolymorphicEmbed.HTML.Helpers
       unquote(verified_routes())
     end
   end

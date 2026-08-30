@@ -7,7 +7,30 @@
       <:title>{Card.label(@card.result)}</:title>
       <:sub_title>{if @card.result.label, do: @card.result.uid}</:sub_title>
       <:right></:right>
-      Hello
+      <.form :let={f} for={@form} phx-submit="submit" phx-change="change" class="p-4">
+        <.polymorphic_embed_inputs_for :let={target_form} field={f[:target]}>
+          <Components.Form.selector
+            label={gettext("Target")}
+            field={target_form[:__type__]}
+            items={@targets}
+          />
+          <%= case source_module(target_form) do %>
+            <% Target.Plex -> %>
+              <Components.Form.textarea label={gettext("Plex")} field={target_form[:payload]} />
+            <% Target.Raw -> %>
+              <Components.Form.input
+                label={gettext("Content type")}
+                field={target_form[:content_type]}
+              />
+              <Components.Form.textarea label={gettext("Payload")} field={target_form[:payload]} />
+              <Components.Form.button_row>
+                <Components.Form.button type="submit">
+                  {gettext("Save")}
+                </Components.Form.button>
+              </Components.Form.button_row>
+          <% end %>
+        </.polymorphic_embed_inputs_for>
+      </.form>
     </Components.box>
   </Components.loading>
 </Layouts.app>
