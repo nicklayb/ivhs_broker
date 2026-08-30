@@ -64,12 +64,27 @@ defmodule IvhsBrokerWeb.Components.Form do
 
   slot(:inner_block)
   attr(:type, :string, default: "submit")
+  attr(:style, :atom, default: :success)
+  attr(:on_click, :string, default: "")
+
+  @styles %{
+    action: "bg-white",
+    success: "bg-success"
+  }
 
   def button(assigns) do
+    assigns = assign(assigns, :style, @styles[assigns.style])
+
     ~H"""
     <button
       type={@type}
-      class="border-2 border-ink bg-success px-5 py-3 text-xs font-black uppercase tracking-wider shadow-[4px_4px_0_#25251f] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#25251f]"
+      phx-click={@on_click}
+      class={
+        Box.Html.class(
+          "border-2 border-ink px-5 py-3 text-xs font-black uppercase tracking-wider shadow-[4px_4px_0_#25251f] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#25251f]",
+          [@style]
+        )
+      }
     >
       {render_slot(@inner_block)}
     </button>
@@ -103,6 +118,24 @@ defmodule IvhsBrokerWeb.Components.Form do
         placeholder={@placeholder}
         class="w-full resize-y border-2 border-ink bg-paper px-3 py-2.5 font-mono text-sm outline-none focus:bg-white focus:shadow-[3px_3px_0_#25251f]"
       >{@field.value}</textarea>
+    </div>
+    """
+  end
+
+  attr(:field, :map)
+  attr(:placeholder, :string, default: "")
+
+  def search(assigns) do
+    ~H"""
+    <div class="relative mt-3">
+      <label class="sr-only" for={@field.name}>{@placeholder}</label>
+      <input
+        type="search"
+        name={@field.name}
+        value={@field.value}
+        placeholder={@placeholder}
+        class="w-full border-2 border-ink bg-paper py-2.5 px-3 font-mono text-sm outline-none placeholder:text-ink/40 focus:bg-white focus:shadow-[3px_3px_0_#25251f]"
+      />
     </div>
     """
   end

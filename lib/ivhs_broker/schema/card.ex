@@ -47,7 +47,7 @@ defmodule IvhsBroker.Schema.Card do
   def target_changeset(%Card{} = card, params) do
     card
     |> Ecto.Changeset.cast(params, [])
-    |> PolymorphicEmbed.cast_polymorphic_embed(:target, required: true)
+    |> PolymorphicEmbed.cast_polymorphic_embed(:target)
   end
 
   defp validate_label(%Ecto.Changeset{valid?: true} = changeset) do

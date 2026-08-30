@@ -1,6 +1,7 @@
 defmodule IvhsBrokerWeb.Hooks.PutDefaultAssigns do
   import Phoenix.Component
 
+  require Phoenix.LiveView
   require Logger
 
   def on_mount(:default, _params, _session, socket) do
@@ -8,10 +9,23 @@ defmodule IvhsBrokerWeb.Hooks.PutDefaultAssigns do
       socket
       |> assign(:__topics__, [])
       |> assign(:__observables__, %{})
+      |> assign(:__debounce_timers__, %{})
       |> Phoenix.LiveView.attach_hook(:handle_obsverables, :handle_info, &handle_observable/2)
+      |> Phoenix.LiveView.attach_hook(
+        :handle_debounce_timer,
+        :handle_info,
+        &handle_debounced_message/2
+      )
 
     {:cont, socket}
   end
+
+  defp handle_debounced_message({:__debounce__, key, function}, socket) do
+    socket = Phoenix.LiveView.start_async(socket, key, fn -> function.() end)
+    {:halt, socket}
+  end
+
+  defp handle_debounced_message(_, socket), do: {:cont, socket}
 
   defp handle_observable(
          {IvhsBroker.Cache, key, payload},

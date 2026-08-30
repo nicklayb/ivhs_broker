@@ -76,4 +76,15 @@ defmodule IvhsBrokerWeb.Helpers do
       end)
     end)
   end
+
+  def debounce_async(%Phoenix.LiveView.Socket{} = socket, key, options \\ [], function) do
+    timeout = Keyword.get(options, :timeout, :timer.seconds(1))
+
+    Phoenix.Component.update(socket, :__debounce_timers__, fn timers ->
+      existing_timer = Map.get(timers, key)
+      if is_reference(existing_timer), do: Process.cancel_timer(existing_timer)
+      timer = Process.send_after(self(), {:__debounce__, key, function}, timeout)
+      Map.put(timers, key, timer)
+    end)
+  end
 end

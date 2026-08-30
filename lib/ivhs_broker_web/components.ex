@@ -83,7 +83,7 @@ defmodule IvhsBrokerWeb.Components do
 
   def box(assigns) do
     ~H"""
-    <section class="border-2 border-[#25251f] bg-[#faf5e9] shadow-[5px_5px_0_#25251f]">
+    <section class="border-2 border-[#25251f] bg-[#faf5e9] shadow-[5px_5px_0_#25251f] mb-3">
       
     <!-- Table toolbar -->
       <div class="flex flex-col gap-4 border-b-2 border-[#25251f] p-4 sm:flex-row sm:items-center sm:justify-between">

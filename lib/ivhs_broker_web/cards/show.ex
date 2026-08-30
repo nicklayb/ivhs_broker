@@ -2,7 +2,9 @@ defmodule IvhsBrokerWeb.Cards.Show do
   alias Phoenix.LiveView.AsyncResult
   alias IvhsBroker.Schema.Card
   alias IvhsBroker.Schema.Card.Target
+  alias IvhsBroker.Client.Plex, as: PlexClient
   alias IvhsBroker.Cards
+  alias IvhsBrokerWeb.Cards.Show.Target, as: TargetForm
   use IvhsBrokerWeb, :live_view
 
   @targets [
@@ -15,6 +17,8 @@ defmodule IvhsBrokerWeb.Cards.Show do
       socket
       |> assign(:card, AsyncResult.loading())
       |> assign(:targets, @targets)
+      |> assign(:plex_search_value, "")
+      |> assign(:plex_results, [])
       |> start_async(:card, fn -> fetch_card(params) end)
 
     {:ok, socket}
@@ -36,29 +40,79 @@ defmodule IvhsBrokerWeb.Cards.Show do
     {:noreply, socket}
   end
 
+  def handle_async(:search_plex, {:ok, videos}, socket) do
+    socket = assign(socket, :plex_results, videos)
+    {:noreply, socket}
+  end
+
+  def handle_async(:search_plex, {:error, _error}, socket) do
+    {:noreply, socket}
+  end
+
+  def handle_event(
+        "change",
+        %{"_target" => ["plex_search"], "plex_search" => plex_search},
+        socket
+      ) do
+    socket = debounce_async(socket, :search_plex, fn -> search_plex(plex_search) end)
+    {:noreply, socket}
+  end
+
+  def handle_event("select_plex_result", params, socket) do
+    socket = submit(socket, %{"target" => params})
+    {:noreply, socket}
+  end
+
+  def handle_event("add_target", _, socket) do
+    socket = assign_form(socket, %{"target" => %{"__type__" => "raw"}})
+
+    {:noreply, socket}
+  end
+
+  def handle_event("remove_target", _, socket) do
+    socket = submit(socket, %{"target" => nil})
+
+    {:noreply, socket}
+  end
+
+  def handle_event("change", %{"card" => %{"target" => %{"__type__" => "none"}}}, socket) do
+    socket = submit(socket, %{"target" => nil})
+    {:noreply, socket}
+  end
+
   def handle_event("change", %{"card" => params}, socket) do
     socket = assign_form(socket, params)
     {:noreply, socket}
   end
 
   def handle_event("submit", %{"card" => params}, socket) do
-    socket =
-      with %Ecto.Changeset{valid?: true} <- build_form(socket, params),
-           {:ok, %Card{} = card} <-
-             IvhsBroker.UseCase.execute(
-               IvhsBroker.UseCase.Cards.UpdateTarget,
-               {socket.assigns.card.result.uid, params}
-             ) do
-        update_async_result(socket, :card, fn _ -> card end)
-      else
-        %Ecto.Changeset{} = changeset ->
-          assign_form(socket, changeset)
-
-        {:error, _} ->
-          socket
-      end
+    socket = submit(socket, params)
 
     {:noreply, socket}
+  end
+
+  defp submit(socket, params) do
+    with %Ecto.Changeset{valid?: true} <- build_form(socket, params),
+         {:ok, %Card{} = card} <-
+           IvhsBroker.UseCase.execute(
+             IvhsBroker.UseCase.Cards.UpdateTarget,
+             {socket.assigns.card.result.uid, params}
+           ) do
+      socket
+      |> update_async_result(:card, fn _ -> card end)
+      |> assign_form()
+    else
+      %Ecto.Changeset{} = changeset ->
+        assign_form(socket, changeset)
+
+      {:error, _} ->
+        socket
+    end
+  end
+
+  defp search_plex(plex_search) do
+    {:ok, %{videos: videos}} = PlexClient.search(plex_search)
+    videos
   end
 
   defp fetch_card(params) do
