@@ -9,7 +9,8 @@ defmodule IvhsBrokerWeb.Cards.Show do
 
   @targets [
     {"raw", "Raw"},
-    {"plex", "Plex"}
+    {"plex", "Plex"},
+    {"youtube", "YouTube"}
   ]
 
   def mount(params, _session, socket) do
@@ -29,7 +30,8 @@ defmodule IvhsBrokerWeb.Cards.Show do
       socket
       |> assign(:card, AsyncResult.ok(socket.assigns.card, card))
       |> subscribe()
-      |> assign_form()
+      |> assign_target_form()
+      |> assign(:label_form, nil)
 
     {:noreply, socket}
   end
@@ -50,7 +52,7 @@ defmodule IvhsBrokerWeb.Cards.Show do
   end
 
   def handle_event(
-        "change",
+        "change_target",
         %{"_target" => ["plex_search"], "plex_search" => plex_search},
         socket
       ) do
@@ -58,41 +60,76 @@ defmodule IvhsBrokerWeb.Cards.Show do
     {:noreply, socket}
   end
 
+  def handle_event("edit_label", _params, socket) do
+    socket = assign_label_form(socket)
+    {:noreply, socket}
+  end
+
   def handle_event("select_plex_result", params, socket) do
-    socket = submit(socket, %{"target" => params})
+    socket = submit_target(socket, %{"target" => params})
     {:noreply, socket}
   end
 
   def handle_event("add_target", _, socket) do
-    socket = assign_form(socket, %{"target" => %{"__type__" => "raw"}})
+    socket = assign_target_form(socket, %{"target" => %{"__type__" => "raw"}})
 
     {:noreply, socket}
   end
 
   def handle_event("remove_target", _, socket) do
-    socket = submit(socket, %{"target" => nil})
+    socket = submit_target(socket, %{"target" => nil})
 
     {:noreply, socket}
   end
 
-  def handle_event("change", %{"card" => %{"target" => %{"__type__" => "none"}}}, socket) do
-    socket = submit(socket, %{"target" => nil})
+  def handle_event("change_target", %{"card" => %{"target" => %{"__type__" => "none"}}}, socket) do
+    socket = submit_target(socket, %{"target" => nil})
     {:noreply, socket}
   end
 
-  def handle_event("change", %{"card" => params}, socket) do
-    socket = assign_form(socket, params)
+  def handle_event("change_label", %{"card" => params}, socket) do
+    socket = assign_label_form(socket, params)
     {:noreply, socket}
   end
 
-  def handle_event("submit", %{"card" => params}, socket) do
-    socket = submit(socket, params)
+  def handle_event("submit_label", %{"card" => params}, socket) do
+    socket = submit_label(socket, params)
 
     {:noreply, socket}
   end
 
-  defp submit(socket, params) do
-    with %Ecto.Changeset{valid?: true} <- build_form(socket, params),
+  def handle_event("change_target", %{"card" => params}, socket) do
+    socket = assign_target_form(socket, params)
+    {:noreply, socket}
+  end
+
+  def handle_event("submit_target", %{"card" => params}, socket) do
+    socket = submit_target(socket, params)
+
+    {:noreply, socket}
+  end
+
+  defp submit_label(socket, params) do
+    with %Ecto.Changeset{valid?: true} <- build_label_form(socket, params),
+         {:ok, %Card{} = card} <-
+           IvhsBroker.UseCase.execute(
+             IvhsBroker.UseCase.Cards.Update,
+             {socket.assigns.card.result.uid, params}
+           ) do
+      socket
+      |> update_async_result(:card, fn _ -> card end)
+      |> assign(:label_form, nil)
+    else
+      %Ecto.Changeset{} = changeset ->
+        assign_label_form(socket, changeset)
+
+      {:error, _} ->
+        socket
+    end
+  end
+
+  defp submit_target(socket, params) do
+    with %Ecto.Changeset{valid?: true} <- build_target_form(socket, params),
          {:ok, %Card{} = card} <-
            IvhsBroker.UseCase.execute(
              IvhsBroker.UseCase.Cards.UpdateTarget,
@@ -100,10 +137,10 @@ defmodule IvhsBrokerWeb.Cards.Show do
            ) do
       socket
       |> update_async_result(:card, fn _ -> card end)
-      |> assign_form()
+      |> assign_target_form()
     else
       %Ecto.Changeset{} = changeset ->
-        assign_form(socket, changeset)
+        assign_target_form(socket, changeset)
 
       {:error, _} ->
         socket
@@ -139,19 +176,35 @@ defmodule IvhsBrokerWeb.Cards.Show do
 
   defp card_topics(_), do: []
 
-  defp assign_form(socket, params \\ %{})
+  defp assign_label_form(socket, params \\ %{})
 
-  defp assign_form(socket, %Ecto.Changeset{} = changeset) do
-    assign(socket, :form, to_form(changeset))
+  defp assign_label_form(socket, %Ecto.Changeset{} = changeset) do
+    assign(socket, :label_form, to_form(changeset))
   end
 
-  defp assign_form(socket, params) do
-    changeset = build_form(socket, params)
+  defp assign_label_form(socket, params) do
+    changeset = build_label_form(socket, params)
 
-    assign_form(socket, changeset)
+    assign_label_form(socket, changeset)
   end
 
-  defp build_form(socket, params) do
+  defp build_label_form(socket, params) do
+    Card.update_changeset(socket.assigns.card.result, params)
+  end
+
+  defp assign_target_form(socket, params \\ %{})
+
+  defp assign_target_form(socket, %Ecto.Changeset{} = changeset) do
+    assign(socket, :target_form, to_form(changeset))
+  end
+
+  defp assign_target_form(socket, params) do
+    changeset = build_target_form(socket, params)
+
+    assign_target_form(socket, changeset)
+  end
+
+  defp build_target_form(socket, params) do
     Card.target_changeset(socket.assigns.card.result, params)
   end
 end

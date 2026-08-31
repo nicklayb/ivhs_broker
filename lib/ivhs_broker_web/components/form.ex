@@ -42,15 +42,17 @@ defmodule IvhsBrokerWeb.Components.Form do
   end
 
   attr(:field, :map)
-  attr(:label, :string)
+  attr(:label, :string, default: nil)
   attr(:placeholder, :string, default: "")
 
   def input(assigns) do
     ~H"""
     <div class="space-y-2">
-      <label for={@field.name} class="block text-[10px] font-black uppercase tracking-[0.18em] mt-3">
-        {@label}
-      </label>
+      <%= if @label do %>
+        <label for={@field.name} class="block text-[10px] font-black uppercase tracking-[0.18em] mt-3">
+          {@label}
+        </label>
+      <% end %>
       <input
         name={@field.name}
         type="text"

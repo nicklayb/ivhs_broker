@@ -3,8 +3,6 @@ defmodule IvhsBroker.Schema.Card.Target.Raw do
 
   alias IvhsBroker.Schema.Card.Target.Raw
 
-  @primary_key false
-
   embedded_schema do
     field(:content_type, :string)
     field(:payload, :string)

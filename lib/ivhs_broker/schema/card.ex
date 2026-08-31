@@ -19,7 +19,8 @@ defmodule IvhsBroker.Schema.Card do
     polymorphic_embeds_one(:target,
       types: [
         raw: Target.Raw,
-        plex: Target.Plex
+        plex: Target.Plex,
+        youtube: Target.Youtube
       ],
       on_type_not_found: :changeset_error,
       on_replace: :update

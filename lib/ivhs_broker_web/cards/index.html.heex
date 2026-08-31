@@ -22,6 +22,15 @@
             <% _ -> %>
           <% end %>
         </:cell>
+        <:cell :let={row} title={gettext("Target")}>
+          <%= case row.target do %>
+            <% nil -> %>
+            <% %struct{} -> %>
+              <div class="inline-flex items-center gap-2 border px-1 py-0.5 bg-info text-xs font-black uppercase">
+                {to_string(PolymorphicEmbed.get_polymorphic_type(Card, :target, struct))}
+              </div>
+          <% end %>
+        </:cell>
         <:cell :let={row} title={gettext("Last saw on")} cell_class="text-sm">
           <%= case row.card_reads do %>
             <% [%CardRead{} = card_read | _] -> %>

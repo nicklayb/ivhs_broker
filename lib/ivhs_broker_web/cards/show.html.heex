@@ -4,7 +4,17 @@
       {Card.label(@card.result)}
     </div>
     <Components.box>
-      <:title>{Card.label(@card.result)}</:title>
+      <:title>
+        <%= if is_nil(@label_form) do %>
+          <div phx-click="edit_label">
+            {Card.label(@card.result)}
+          </div>
+        <% else %>
+          <.form for={@label_form} phx-change="change_label" phx-submit="submit_label">
+            <Components.Form.input field={@label_form[:label]} />
+          </.form>
+        <% end %>
+      </:title>
       <:sub_title>{if @card.result.label, do: @card.result.uid}</:sub_title>
       <:right></:right>
     </Components.box>
@@ -23,7 +33,13 @@
             </Components.Form.button>
         <% end %>
       </:right>
-      <.form :let={f} for={@form} phx-submit="submit" phx-change="change" class="p-4">
+      <.form
+        :let={f}
+        for={@target_form}
+        phx-submit="submit_target"
+        phx-change="change_target"
+        class="p-4"
+      >
         <.polymorphic_embed_inputs_for :let={target_form} default={:raw} field={f[:target]}>
           <Components.Form.selector
             label={gettext("Target")}
@@ -34,7 +50,7 @@
             <% Target.Plex -> %>
               <TargetForm.Plex.render
                 currently_selected={@card.result.target}
-                form={@form}
+                form={@target_form}
                 plex_search_value={@plex_search_value}
                 results={@plex_results}
               />
@@ -48,6 +64,24 @@
                   label={gettext("Payload")}
                   field={target_form[:payload]}
                 />
+                <Components.Form.button_row>
+                  <Components.Form.button type="submit">
+                    {gettext("Save")}
+                  </Components.Form.button>
+                </Components.Form.button_row>
+              </div>
+            <% Target.Youtube -> %>
+              <div>
+                <Components.Form.input
+                  label={gettext("Video code or URL")}
+                  field={target_form[:code]}
+                />
+                <a
+                  href={Target.Youtube.video_url(target_form[:code].value)}
+                  class="p-4 margin-0-auto"
+                >
+                  <img class="w-32" src={Target.Youtube.thumbnail(target_form[:code].value)} />
+                </a>
                 <Components.Form.button_row>
                   <Components.Form.button type="submit">
                     {gettext("Save")}
