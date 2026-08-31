@@ -48,7 +48,7 @@ defmodule IvhsBrokerWeb.Cards.Show.Target.Plex do
                 @plex_currently_selected? and
                   @currently_selected.rating_key == plex_result.rating_key
               }
-              on_click="select_plex_result"
+              on_click="plex:select"
             />
           <% end %>
         </div>

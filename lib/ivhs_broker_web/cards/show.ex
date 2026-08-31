@@ -51,8 +51,35 @@ defmodule IvhsBrokerWeb.Cards.Show do
     {:noreply, socket}
   end
 
+  def handle_event("label:edit", _params, socket) do
+    socket = assign_label_form(socket)
+    {:noreply, socket}
+  end
+
+  def handle_event("label:cancel", _params, socket) do
+    socket = assign(socket, :label_form, nil)
+    {:noreply, socket}
+  end
+
+  def handle_event("plex:select", params, socket) do
+    socket = submit_target(socket, %{"target" => params})
+    {:noreply, socket}
+  end
+
+  def handle_event("target:add", _, socket) do
+    socket = assign_target_form(socket, %{"target" => %{"__type__" => "raw"}})
+
+    {:noreply, socket}
+  end
+
+  def handle_event("target:remove", _, socket) do
+    socket = submit_target(socket, %{"target" => nil})
+
+    {:noreply, socket}
+  end
+
   def handle_event(
-        "change_target",
+        "target:change",
         %{"_target" => ["plex_search"], "plex_search" => plex_search},
         socket
       ) do
@@ -60,50 +87,28 @@ defmodule IvhsBrokerWeb.Cards.Show do
     {:noreply, socket}
   end
 
-  def handle_event("edit_label", _params, socket) do
-    socket = assign_label_form(socket)
-    {:noreply, socket}
-  end
-
-  def handle_event("select_plex_result", params, socket) do
-    socket = submit_target(socket, %{"target" => params})
-    {:noreply, socket}
-  end
-
-  def handle_event("add_target", _, socket) do
-    socket = assign_target_form(socket, %{"target" => %{"__type__" => "raw"}})
-
-    {:noreply, socket}
-  end
-
-  def handle_event("remove_target", _, socket) do
-    socket = submit_target(socket, %{"target" => nil})
-
-    {:noreply, socket}
-  end
-
-  def handle_event("change_target", %{"card" => %{"target" => %{"__type__" => "none"}}}, socket) do
+  def handle_event("target:change", %{"card" => %{"target" => %{"__type__" => "none"}}}, socket) do
     socket = submit_target(socket, %{"target" => nil})
     {:noreply, socket}
   end
 
-  def handle_event("change_label", %{"card" => params}, socket) do
+  def handle_event("label:change", %{"card" => params}, socket) do
     socket = assign_label_form(socket, params)
     {:noreply, socket}
   end
 
-  def handle_event("submit_label", %{"card" => params}, socket) do
+  def handle_event("label:submit", %{"card" => params}, socket) do
     socket = submit_label(socket, params)
 
     {:noreply, socket}
   end
 
-  def handle_event("change_target", %{"card" => params}, socket) do
+  def handle_event("target:change", %{"card" => params}, socket) do
     socket = assign_target_form(socket, params)
     {:noreply, socket}
   end
 
-  def handle_event("submit_target", %{"card" => params}, socket) do
+  def handle_event("target:submit", %{"card" => params}, socket) do
     socket = submit_target(socket, params)
 
     {:noreply, socket}

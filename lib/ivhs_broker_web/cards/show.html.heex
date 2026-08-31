@@ -6,12 +6,17 @@
     <Components.box>
       <:title>
         <%= if is_nil(@label_form) do %>
-          <div phx-click="edit_label">
+          <div phx-click="label:edit">
             {Card.label(@card.result)}
           </div>
         <% else %>
-          <.form for={@label_form} phx-change="change_label" phx-submit="submit_label">
-            <Components.Form.input field={@label_form[:label]} />
+          <.form
+            for={@label_form}
+            phx-change="label:change"
+            phx-submit="label:submit"
+            class="mb-1"
+          >
+            <Components.Form.input field={@label_form[:label]} on_blur="label:cancel" />
           </.form>
         <% end %>
       </:title>
@@ -24,11 +29,11 @@
       <:right>
         <%= case @card.result.target do %>
           <% nil -> %>
-            <Components.Form.button type="button" style={:action} on_click="add_target">
+            <Components.Form.button type="button" style={:action} on_click="target:add">
               {gettext("Add target")}
             </Components.Form.button>
           <% _ -> %>
-            <Components.Form.button type="button" style={:action} on_click="remove_target">
+            <Components.Form.button type="button" style={:action} on_click="target:remove">
               {gettext("Remove target")}
             </Components.Form.button>
         <% end %>
@@ -36,8 +41,8 @@
       <.form
         :let={f}
         for={@target_form}
-        phx-submit="submit_target"
-        phx-change="change_target"
+        phx-submit="target:submit"
+        phx-change="target:change"
         class="p-4"
       >
         <.polymorphic_embed_inputs_for :let={target_form} default={:raw} field={f[:target]}>

@@ -44,6 +44,7 @@ defmodule IvhsBrokerWeb.Components.Form do
   attr(:field, :map)
   attr(:label, :string, default: nil)
   attr(:placeholder, :string, default: "")
+  attr(:on_blur, :string, default: "")
 
   def input(assigns) do
     ~H"""
@@ -58,6 +59,7 @@ defmodule IvhsBrokerWeb.Components.Form do
         type="text"
         placeholder={@placeholder}
         value={@field.value}
+        phx-blur={@on_blur}
         class="w-full border-2 border-ink bg-paper px-3 py-2.5 font-mono text-sm outline-none transition focus:bg-white focus:shadow-[3px_3px_0_#25251f]"
       />
     </div>
