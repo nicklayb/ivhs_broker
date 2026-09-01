@@ -35,6 +35,7 @@ ivhs_broker-*.tar
 # In case you use Node.js/npm, you want to ignore these.
 npm-debug.log
 /assets/node_modules/
+/scripts/node_modules/
 
 # Database files
 *.db
@@ -43,3 +44,4 @@ npm-debug.log
 .nix-hex
 
 .github/actions/**/node_modules
+card_covers

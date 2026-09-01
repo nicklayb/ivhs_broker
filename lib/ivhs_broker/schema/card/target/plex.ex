@@ -44,7 +44,8 @@ defmodule IvhsBroker.Schema.Card.Target.Plex do
   @impl IvhsBroker.Schema.Card.Target
   def to_payload(%Plex{} = plex) do
     %{
-      media_content_id: JSON.encode!(%{library_name: plex.library, id: plex.rating_key}),
+      media_content_id:
+        "plex://#{JSON.encode!(%{library_name: plex.library, id: plex.rating_key})}",
       media_content_type: "movie"
     }
   end

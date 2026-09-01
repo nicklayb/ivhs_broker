@@ -76,3 +76,7 @@ build-actions: install-actions-deps
 
 webhook reader_name uid state:
 	curl -X POST --json '{"reader_name":"{{reader_name}}", "uid": "{{uid}}","state":"{{state}}"}' http://localhost:4000/webhooks/card_reads
+
+generate-cover source destination:
+	mkdir -p ./card_covers
+	node scripts/generate_card.mjs "{{source}}" ./card_covers/"{{destination}}"

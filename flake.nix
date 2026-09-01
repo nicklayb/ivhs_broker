@@ -28,6 +28,7 @@
             pkgs.just
             pkgs.tailwindcss_4
             pkgs.esbuild
+            pkgs.nodejs_24
           ]
           ++ systemSpecificDeps;
 
