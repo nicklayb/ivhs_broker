@@ -1,24 +1,11 @@
-docker_registry := "nboisvert"
 docker_tag := "latest"
 docker_image := "ivhs_broker" + ":" + docker_tag
-docker_remote_image := docker_registry / docker_image
 
 # Starts the dev environment by default
 default: dev
 
-echo:
-	echo {{docker_remote_image}}
-
 docker-build:
 	docker build -t {{docker_image}} .
-
-docker-tag:
-	docker tag {{docker_image}} {{docker_remote_image}}
-
-docker-push:
-	docker push {{docker_remote_image}}
-
-release-docker: docker-build docker-tag docker-push
 
 docker-run: 
 	docker run \
@@ -30,9 +17,6 @@ docker-run:
 
 boot-db:
 	docker compose up -d
-
-# Fetches deps, setup assets and create the database
-setup: deps boot-db setup-assets create-db reset-db
 
 # Starts a development server
 dev: deps boot-db create-db iex-server
