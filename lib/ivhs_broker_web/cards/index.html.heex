@@ -1,10 +1,20 @@
-<Layouts.app current_path={@current_path}>
+<Layouts.app current_path={@current_path} session_id={@session_id} socket={@socket}>
   <div class="text-lg font-black uppercase tracking-[0.18em] mb-3">{gettext("Cards")}</div>
   <Components.loading async_result={@cards}>
     <Components.box>
       <:title>{gettext("Cards")}</:title>
       <:sub_title>{gettext("%{count} known cards", count: @count_cards)}</:sub_title>
-      <:right></:right>
+      <:right>
+        <.form
+          :let={f}
+          for={Cards.Filter.to_query_params(@filter)}
+          phx-change="filters:change"
+          class="flex gap-2"
+        >
+          <Components.Form.select field={f[:target]} options={@target_options} />
+          <Components.Form.input field={f[:search]} placeholder={gettext("Search...")} />
+        </.form>
+      </:right>
       <Components.Table.render data={@cards}>
         <:cell :let={row} title={gettext("UID")} cell_class="font-mono text-sm">
           <Components.href navigate={~p"/cards/#{row.uid}"}>

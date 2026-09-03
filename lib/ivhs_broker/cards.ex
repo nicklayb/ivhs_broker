@@ -1,17 +1,24 @@
 defmodule IvhsBroker.Cards do
   alias Box.Ecto.Pagination.Page
+  alias IvhsBroker.Cards.Filter, as: CardsFilter
   alias IvhsBroker.Schema.Card
   alias IvhsBroker.Schema.CardRead
   alias IvhsBroker.Repo
 
   require Ecto.Query
 
-  def list_cards(params) do
-    params = Map.put_new(params, :sort_by, :uid)
+  def list_cards(options) do
+    pagination =
+      options
+      |> Keyword.get(:pagination, %{})
+      |> Map.put_new(:sort_by, :uid)
+
+    filter = Keyword.get(options, :filter, CardsFilter.new())
 
     Card
     |> Ecto.Query.order_by([c], {:desc, c.updated_at})
-    |> Repo.paginate(params)
+    |> CardsFilter.apply_filter(filter)
+    |> Repo.paginate(pagination)
     |> Page.map_every_results(&preload_card_read/1)
   end
 
@@ -34,13 +41,5 @@ defmodule IvhsBroker.Cards do
     Box.Cache.memoize(IvhsBroker.Cache, :count_cards, fn ->
       Repo.aggregate(Card, :count)
     end)
-  end
-
-  def update_card(%Card{} = card, attrs) do
-    update_card(card.uid, attrs)
-  end
-
-  def update_card(uid, attrs) do
-    IvhsBroker.UseCase.execute(IvhsBroker.UseCase.Cards.Update, {uid, attrs})
   end
 end

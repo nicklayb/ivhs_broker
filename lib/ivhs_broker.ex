@@ -26,6 +26,12 @@ defmodule IvhsBroker do
     end
   end
 
+  def task do
+    quote do
+      @behaviour IvhsBroker.Task
+    end
+  end
+
   defmacro __using__(type) do
     apply(__MODULE__, type, [])
   end

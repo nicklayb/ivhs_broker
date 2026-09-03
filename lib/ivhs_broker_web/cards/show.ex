@@ -117,7 +117,8 @@ defmodule IvhsBrokerWeb.Cards.Show do
   defp submit_label(socket, params) do
     with %Ecto.Changeset{valid?: true} <- build_label_form(socket, params),
          {:ok, %Card{} = card} <-
-           IvhsBroker.UseCase.execute(
+           execute(
+             socket,
              IvhsBroker.UseCase.Cards.Update,
              {socket.assigns.card.result.uid, params}
            ) do
@@ -136,7 +137,8 @@ defmodule IvhsBrokerWeb.Cards.Show do
   defp submit_target(socket, params) do
     with %Ecto.Changeset{valid?: true} <- build_target_form(socket, params),
          {:ok, %Card{} = card} <-
-           IvhsBroker.UseCase.execute(
+           execute(
+             socket,
              IvhsBroker.UseCase.Cards.UpdateTarget,
              {socket.assigns.card.result.uid, params}
            ) do
@@ -145,10 +147,18 @@ defmodule IvhsBrokerWeb.Cards.Show do
       |> assign_target_form()
     else
       %Ecto.Changeset{} = changeset ->
-        assign_target_form(socket, changeset)
+        socket
+        |> assign_target_form(changeset)
+        |> notify(
+          type: :error,
+          message: gettext("Form is invalid, check errors and try again")
+        )
 
       {:error, _} ->
-        socket
+        notify(socket,
+          type: :error,
+          message: gettext("An unknown error occured while updating the target")
+        )
     end
   end
 

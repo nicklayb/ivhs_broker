@@ -4,12 +4,19 @@ defmodule IvhsBrokerWeb.Hooks.PutDefaultAssigns do
   require Phoenix.LiveView
   require Logger
 
-  def on_mount(:default, _params, _session, socket) do
+  def on_mount(:default, _params, session, socket) do
     socket =
       socket
       |> assign(:__topics__, [])
       |> assign(:__observables__, %{})
       |> assign(:__debounce_timers__, %{})
+      |> assign(:current_path, session["current_path"])
+      |> assign(:session_id, session["session_id"])
+      |> Phoenix.LiveView.attach_hook(
+        :current_path,
+        :handle_params,
+        &handle_current_path_change/3
+      )
       |> Phoenix.LiveView.attach_hook(:handle_obsverables, :handle_info, &handle_observable/2)
       |> Phoenix.LiveView.attach_hook(
         :handle_debounce_timer,
@@ -18,6 +25,12 @@ defmodule IvhsBrokerWeb.Hooks.PutDefaultAssigns do
       )
 
     {:cont, socket}
+  end
+
+  defp handle_current_path_change(_params, uri, socket) do
+    path = URI.parse(uri).path
+
+    {:cont, assign(socket, :current_path, path)}
   end
 
   defp handle_debounced_message({:__debounce__, key, function}, socket) do

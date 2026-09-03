@@ -28,7 +28,8 @@ defmodule IvhsBroker.UseCase.Cards.UpdateTarget do
   end
 
   @impl Box.UseCase
-  def after_run(%{card: card}, _) do
+  def after_run(%{card: card}, options) do
     IvhsBroker.PubSub.broadcast(["cards:#{card.uid}"], {:updated, card})
+    notify(options, type: :success, message: gettext("Card's target updated successfully"))
   end
 end

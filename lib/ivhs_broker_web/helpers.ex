@@ -1,6 +1,19 @@
 defmodule IvhsBrokerWeb.Helpers do
   alias Phoenix.LiveView.AsyncResult
 
+  def execute(socket, use_case, params, options \\ []) do
+    session_id = socket.assigns.session_id
+
+    options = Keyword.put(options, :session_id, session_id)
+
+    IvhsBroker.UseCase.execute(use_case, params, options)
+  end
+
+  def notify(socket, params) do
+    IvhsBroker.UseCase.notify([session_id: socket.assigns.session_id], params)
+    socket
+  end
+
   def map_connected(%Phoenix.LiveView.Socket{} = socket, function) do
     if Phoenix.LiveView.connected?(socket) do
       function.(socket)

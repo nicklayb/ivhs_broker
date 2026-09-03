@@ -1,4 +1,4 @@
-<Layouts.app current_path={@current_path}>
+<Layouts.app current_path={@current_path} session_id={@session_id} socket={@socket}>
   <div class="text-lg font-black uppercase tracking-[0.18em] mb-3">{gettext("Devices")}</div>
   <Components.loading async_result={@devices}>
     <Components.box>

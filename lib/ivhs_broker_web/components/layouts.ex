@@ -33,10 +33,10 @@ defmodule IvhsBrokerWeb.Components.Layouts do
 
   def nav do
     [
-      %{name: gettext("Logs"), link: ~p"/"},
+      %{name: gettext("Logs"), link: ~p"/logs"},
       %{name: gettext("Devices"), link: ~p"/devices"},
-      %{name: gettext("Cards"), link: ~p"/cards"},
-      %{name: gettext("Settings"), link: ~p"/settings"}
+      %{name: gettext("Cards"), link: ~p"/cards"}
+      # %{name: gettext("Settings"), link: ~p"/settings"}
     ]
   end
 end

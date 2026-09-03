@@ -1,4 +1,4 @@
-<Layouts.app current_path={@current_path}>
+<Layouts.app current_path={@current_path} session_id={@session_id} socket={@socket}>
   <Components.loading async_result={@device}>
     <div class="text-lg font-black uppercase tracking-[0.18em] mb-3">
       {@device.result.reader_name}

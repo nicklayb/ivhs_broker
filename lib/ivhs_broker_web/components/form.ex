@@ -143,4 +143,28 @@ defmodule IvhsBrokerWeb.Components.Form do
     </div>
     """
   end
+
+  attr(:label, :string, default: nil)
+  attr(:field, :map)
+  attr(:options, :list)
+
+  def select(assigns) do
+    ~H"""
+    <div class="space-y-2">
+      <%= if @label do %>
+        <label for="device-status" class="block text-[10px] font-black uppercase tracking-[0.18em]">
+          {@label}
+        </label>
+      <% end %>
+      <select
+        name={@field.name}
+        class="w-full appearance-none border-2 border-ink bg-paper px-3 py-2.5 font-mono text-sm outline-none focus:bg-white focus:shadow-[3px_3px_0_#25251f]"
+      >
+        <%= for{value, label} <- @options do %>
+          <option value={value} selected={@field.value == value}>{label}</option>
+        <% end %>
+      </select>
+    </div>
+    """
+  end
 end

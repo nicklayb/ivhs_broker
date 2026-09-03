@@ -7,12 +7,22 @@ defmodule IvhsBrokerWeb.Cards.Index do
   alias Box.Ecto.Pagination.Page
   use IvhsBrokerWeb, :live_view
   @page_size 10
-  def mount(_params, _session, socket) do
+  def mount(params, _session, socket) do
+    filter = Cards.Filter.new(params)
+
+    target_options =
+      Card
+      |> PolymorphicEmbed.types(:target)
+      |> Enum.map(&{&1, &1})
+      |> then(&[{"all", gettext("All targets")}, {"without", gettext("No target")} | &1])
+
     socket =
       socket
       |> assign(:cards, AsyncResult.loading())
-      |> start_async(:cards, &fetch_cards/0)
+      |> start_async(:cards, fn -> fetch_cards(filter) end)
+      |> assign(:target_options, target_options)
       |> assign_observable(count_cards: fn -> Cards.count_cards() end)
+      |> assign(:filter, filter)
 
     {:ok, socket}
   end
@@ -93,6 +103,17 @@ defmodule IvhsBrokerWeb.Cards.Index do
     {:noreply, socket}
   end
 
+  def handle_event("filters:change", params, socket) do
+    filter = Cards.Filter.update(socket.assigns.filter, params)
+
+    socket =
+      socket
+      |> assign(:filter, filter)
+      |> debounce_async(:cards, fn -> fetch_cards(filter) end)
+
+    {:noreply, socket}
+  end
+
   def handle_event("prev-page", _params, socket) do
     socket =
       socket
@@ -111,8 +132,8 @@ defmodule IvhsBrokerWeb.Cards.Index do
     {:noreply, socket}
   end
 
-  defp fetch_cards do
-    Cards.list_cards(%{limit: @page_size})
+  defp fetch_cards(filter) do
+    Cards.list_cards(filter: filter, pagination: %{limit: @page_size})
   end
 
   defp subscribe(socket) do

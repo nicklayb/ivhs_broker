@@ -15,27 +15,29 @@ defmodule IvhsBrokerWeb.Router do
     plug(:put_layout, {IvhsBrokerWeb.Components.Layouts, :app})
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
-    plug(IvhsBrokerWeb.Plugs.CurrentPath)
+    plug(IvhsBrokerWeb.Plugs.DefaultAssigns)
   end
 
   pipeline(:api) do
     plug(:accepts, ["json"])
   end
 
-  live_session :default, on_mount: [Hooks.PutCurrentPath, Hooks.PutDefaultAssigns] do
+  scope("/webhooks", IvhsBrokerWeb) do
+    pipe_through([:api])
+    post("/card_reads", Webhooks.CardReads.Controller, :create)
+  end
+
+  live_session :default, on_mount: [Hooks.PutDefaultAssigns] do
     scope("/", IvhsBrokerWeb) do
       pipe_through([:browser])
-      live("/", Logs.Index)
+      live("/logs", Logs.Index)
       live("/devices", Devices.Index)
       live("/devices/:reader_name", Devices.Show)
       live("/cards", Cards.Index)
       live("/cards/:uid", Cards.Show)
       live("/settings", Settings.Index)
-    end
-  end
 
-  scope("/webhooks", IvhsBrokerWeb) do
-    pipe_through([:api])
-    post("/card_reads", Webhooks.CardReads.Controller, :create)
+      forward("/", Plugs.RedirectTo, to: "/logs")
+    end
   end
 end
