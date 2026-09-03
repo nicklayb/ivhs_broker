@@ -55,13 +55,13 @@ defmodule IvhsBrokerWeb.Components do
       Box.Html.class(
         "inline-flex items-center gap-2 border px-2 py-1 text-[10px] font-black uppercase",
         [
-          {@state == @valid_state, "border-[#668c52] bg-[#d5e5c8]", "border-[#80694e] bg-[#f0d6b5]"}
+          {@state == @valid_state, "border-dark-green bg-success", "border-dark-red bg-warning"}
         ]
       )
     }>
       <span class={
         Box.Html.class("h-1.5 w-1.5 rounded-full", [
-          {@state == @valid_state, "bg-[#668c52]", "bg-[#80694e]"}
+          {@state == @valid_state, "bg-dark-green", "bg-dark-red"}
         ])
       }>
       </span>
@@ -83,13 +83,13 @@ defmodule IvhsBrokerWeb.Components do
 
   def box(assigns) do
     ~H"""
-    <section class="border-2 border-[#25251f] bg-[#faf5e9] shadow-[5px_5px_0_#25251f] mb-3">
-      <div class="flex flex-col gap-4 border-b-2 border-[#25251f] p-4 sm:flex-row sm:items-center sm:justify-between">
+    <section class="border-2 border-ink bg-light-paper shadow-[5px_5px_0_#25251f] mb-3">
+      <div class="flex flex-col gap-4 border-b-2 border-ink p-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 class="text-sm font-black uppercase tracking-wider">
             {render_slot(@title)}
           </h2>
-          <p class="mt-1 text-xs font-medium text-[#8b8576]">
+          <p class="mt-1 text-xs font-medium text-pale-ink">
             {render_slot(@sub_title)}
           </p>
         </div>

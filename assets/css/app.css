@@ -2,11 +2,15 @@
 
 @theme {
   --color-paper: #f3ead8;
+  --color-light-paper: #faf5e9;
   --color-surface: #e7dcc5;
   --color-ink: #25251f;
   --color-success: #d5e5c8;
+  --color-dark-green: #668c52;
+  --color-dark-red: #80694e;
   --color-warning: #f0d6b5;
   --color-info: #ddd3e6;
+  --color-pale-ink: #8b8576;
 
   @keyframes new-item {
     0% {

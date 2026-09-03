@@ -3,8 +3,13 @@ defmodule IvhsBroker.Schema.Card.Target.Youtube do
 
   alias IvhsBroker.Schema.Card.Target.Youtube
 
+  alias IvhsBroker.Client.Youtube, as: YoutubeClient
+
   embedded_schema do
     field(:code, :string)
+    field(:author_name, :string)
+    field(:video_name, :string)
+    field(:thumbnail, :string)
   end
 
   @required ~w(code)a
@@ -13,6 +18,7 @@ defmodule IvhsBroker.Schema.Card.Target.Youtube do
     |> Ecto.Changeset.cast(params, @required)
     |> Ecto.Changeset.validate_required(@required)
     |> maybe_extract_code()
+    |> fetch_video_details()
   end
 
   defp maybe_extract_code(%Ecto.Changeset{} = changeset) do
@@ -22,6 +28,30 @@ defmodule IvhsBroker.Schema.Card.Target.Youtube do
     else
       _ -> changeset
     end
+  end
+
+  defp fetch_video_details(%Ecto.Changeset{} = changeset) do
+    Box.Ecto.Changeset.update_valid(changeset, fn changeset ->
+      code = Ecto.Changeset.get_field(changeset, :code)
+
+      case YoutubeClient.embed(code) do
+        {:ok, data} -> cast_video_details(changeset, data)
+        {:error, _} -> Ecto.Changeset.add_error(changeset, :code, "could not fetch video details")
+      end
+    end)
+  end
+
+  @required ~w(author_name thumbnail video_name)a
+  defp cast_video_details(%Ecto.Changeset{} = changeset, data) do
+    data = %{
+      author_name: Map.get(data, "author_name"),
+      thumbnail: Map.get(data, "thumbnail_url"),
+      video_name: Map.get(data, "title")
+    }
+
+    changeset
+    |> Ecto.Changeset.cast(data, @required)
+    |> Ecto.Changeset.validate_required(@required)
   end
 
   defp extract_code(%Ecto.Changeset{} = changeset, uri) do

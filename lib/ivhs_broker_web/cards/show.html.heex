@@ -81,12 +81,31 @@
                   label={gettext("Video code or URL")}
                   field={target_form[:code]}
                 />
-                <a
-                  href={Target.Youtube.video_url(target_form[:code].value)}
-                  class="p-4 margin-0-auto"
-                >
-                  <img class="w-32" src={Target.Youtube.thumbnail(target_form[:code].value)} />
-                </a>
+                <%= case @card.result.target do %>
+                  <% %Target.Youtube{} = youtube -> %>
+                    <div class="flex flex-col my-2">
+                      <div class="flex mb-2 gap-2">
+                        <div class="text-md font-black uppercase">
+                          {youtube.author_name}
+                        </div>
+                        <div class="text-md pr-2">
+                          {youtube.video_name}
+                        </div>
+                      </div>
+                      <iframe
+                        width="400"
+                        height="300"
+                        src={"https://www.youtube.com/embed/#{youtube.code}?feature=oembed"}
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                        title={youtube.video_name}
+                      />
+                    </div>
+                  <% _ -> %>
+                <% end %>
+
                 <Components.Form.button_row>
                   <Components.Form.button type="submit">
                     {gettext("Save")}

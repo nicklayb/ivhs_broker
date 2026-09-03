@@ -24,7 +24,7 @@ defmodule IvhsBrokerWeb.Components.Table do
     ~H"""
     <table class="w-full min-w-[720px] border-collapse text-left">
       <thead>
-        <tr class="border-b-2 border-[#25251f] bg-[#e7dcc5]">
+        <tr class="border-b-2 border-ink bg-surface">
           <%= for %{title: title, class: class} <- @titles do %>
             <th class={
               Box.Html.class("px-3 py-3 text-[10px] font-black uppercase tracking-[0.18em]", class)
@@ -35,9 +35,9 @@ defmodule IvhsBrokerWeb.Components.Table do
         </tr>
       </thead>
 
-      <tbody class="divide-y-2 divide-[#25251f]">
+      <tbody class="divide-y-2 divide-ink">
         <%= for row <- @data do %>
-          <tr class="group hover:bg-[#f3ead8] animate-new-item">
+          <tr class="group hover:bg-paper animate-new-item">
             <%= for cell <- @cell do %>
               <td class={Box.Html.class("px-3 py-2", Map.get(cell, :cell_class, ""))}>
                 {render_slot(cell, row)}
@@ -57,10 +57,10 @@ defmodule IvhsBrokerWeb.Components.Table do
       |> assign(:has_prev_page, assigns.page.offset > 0)
 
     ~H"""
-    <div class="flex flex-col gap-3 border-t-2 border-[#25251f] p-4 sm:flex-row sm:items-center sm:justify-between">
-      <div class="font-mono text-xs text-[#8b8576]">
+    <div class="flex flex-col gap-3 border-t-2 border-ink p-4 sm:flex-row sm:items-center sm:justify-between">
+      <div class="font-mono text-xs text-pale-ink">
         {gettext("Showing")}
-        <strong class="text-[#25251f]">
+        <strong class="text-ink">
           {@page.offset + 1}–{@page.offset + length(@page.results)}
         </strong>
       </div>
@@ -83,11 +83,11 @@ defmodule IvhsBrokerWeb.Components.Table do
       phx-click={@on_click}
       class={
         Box.Html.class(
-          "border-2 bg-[#e7dcc5] px-4 ml-1 py-2 text-xs font-black uppercase",
+          "border-2 bg-surface px-4 ml-1 py-2 text-xs font-black uppercase",
           [
             {
               not @disabled,
-              "border-[#25251f] hover:bg-[#25251f] hover:text-[#f3ead8]",
+              "border-ink hover:bg-ink hover:text-paper",
               "text-gray-500 border-gray-500 disabled:bg-paper"
             }
           ]
