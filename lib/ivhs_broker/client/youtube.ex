@@ -5,6 +5,7 @@ defmodule IvhsBroker.Client.Youtube do
     uri = %URI{URI.parse("https://www.youtube.com/oembed") | query: query}
 
     with {:ok, _, %Box.Http.Response{body: body}} <- IvhsBroker.Http.request_200(url: uri) do
+      File.write!("out.json", JSON.encode!(body))
       {:ok, body}
     end
   end

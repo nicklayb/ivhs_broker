@@ -36,7 +36,7 @@ defmodule IvhsBroker.Schema.Card.Target.Youtube do
 
       case YoutubeClient.embed(code) do
         {:ok, data} -> cast_video_details(changeset, data)
-        {:error, _} -> Ecto.Changeset.add_error(changeset, :code, "could not fetch video details")
+        _ -> changeset
       end
     end)
   end
