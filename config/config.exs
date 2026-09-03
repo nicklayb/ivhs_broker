@@ -31,10 +31,10 @@ config :tailwind,
   version: "4.3.3",
   ivhs_broker: [
     args: ~w(
-      --input=assets/css/app.css
-      --output=priv/static/assets/app.css
+      --input=../assets/css/app.css
+      --output=../priv/static/assets/app.css
     ),
-    cd: Path.expand("..", __DIR__)
+    cd: Path.expand("../lib", __DIR__)
   ],
   path: System.get_env("TAILWIND_PATH") || nil
 

@@ -19,8 +19,7 @@ config :ivhs_broker, IvhsBrokerWeb.Endpoint,
       ~r"priv/gettext/.*(po)$",
       ~r"lib/ivhs_broker_web/.*/.*(ex|eex)$"
     ]
-  ],
-  reloadable_compilers: [:gettext, :phoenix, :elixir]
+  ]
 
 config :logger, :console, format: "[$level] $message\n"
 
