@@ -37,7 +37,7 @@ in
     liveViewSalt = mkStrOption "IVHS Secret key base" (
       builtins.hashString "sha256" "ivhs-broker.live_view_salt"
     );
-    app_host = mkStrOption "App's hostname" "http://localhost:${toString defaultBorkerPort}";
+    appHost = mkStrOption "App's hostname" "http://localhost:${toString defaultBorkerPort}";
     loggerLevel = mkStrOption "Logger's level" "info";
     emitterDebounce = mkIntOption "Emitter's debounce" 1000;
     mqtt = {
@@ -87,7 +87,7 @@ in
           DATABASE_PATH = cfg.databaseUrl;
           SECRET_KEY_BASE = cfg.secretKeyBase;
           LIVE_VIEW_SALT = cfg.liveViewSalt;
-          APP_HOST = cfg.app_host;
+          APP_HOST = cfg.appHost;
           LOGGER_LEVEL = cfg.loggerLevel;
           EMITTER_DEBOUNCE = "${toString cfg.emitterDebounce}";
           MQTT_HOST = cfg.mqtt.host;
