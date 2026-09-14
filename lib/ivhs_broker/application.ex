@@ -10,8 +10,7 @@ defmodule IvhsBroker.Application do
       IvhsBroker.CardConsumer,
       IvhsBroker.EventEmitter,
       IvhsBroker.Mqtt.Client,
-      {Ecto.Migrator,
-       repos: Application.fetch_env!(:ivhs_broker, :ecto_repos), skip: skip_migrations?()},
+      {Ecto.Migrator, repos: Application.fetch_env!(:ivhs_broker, :ecto_repos)},
       IvhsBrokerWeb.Endpoint
     ]
 
