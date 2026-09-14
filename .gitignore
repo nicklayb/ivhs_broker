@@ -46,3 +46,4 @@ npm-debug.log
 
 .github/actions/**/node_modules
 card_covers
+result

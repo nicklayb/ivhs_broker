@@ -49,12 +49,15 @@ defmodule IvhsBroker.MixProject do
       {:tz, "~> 0.28"},
       {:phoenix_ecto, "~> 4.5"},
       {:mqttx, "~> 0.11.0"},
+      {:deps_nix, "~> 2.5.0"},
       {:thousand_island, "~> 1.4"}
     ]
   end
 
   defp aliases do
     [
+      "deps.get": ["deps.get", "deps.nix"],
+      "deps.update": ["deps.update", "deps.nix"],
       setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],

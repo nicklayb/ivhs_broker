@@ -9,28 +9,36 @@
       nixpkgs,
       flake-utils,
     }:
-    flake-utils.lib.eachDefaultSystem (
+    let
+      nixosModule = import ./nixosModule.nix {
+        inherit self;
+      };
+    in
+    (flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = import nixpkgs {
           inherit system;
         };
-        systemSpecificDeps = if pkgs.stdenv.hostPlatform.isLinux then [ pkgs.inotify-tools ] else [ ];
+        tailwind = pkgs.tailwindcss_4;
+        esbuild = pkgs.esbuild;
+        erlangPackages = pkgs.beam28Packages;
+        erlang = erlangPackages.erlang;
+        elixir = erlangPackages.elixir_1_20;
       in
       {
         devShells.default = pkgs.mkShell {
           buildInputs = [
-            pkgs.beam28Packages.elixir_1_20
-            pkgs.beam28Packages.erlang
-            pkgs.beam28Packages.elixir-ls
-            pkgs.beam28Packages.expert
+            erlang
+            elixir
+            erlangPackages.expert
             pkgs.direnv
             pkgs.just
-            pkgs.tailwindcss_4
-            pkgs.esbuild
+            tailwind
+            esbuild
             pkgs.nodejs_24
           ]
-          ++ systemSpecificDeps;
+          ++ (nixpkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.inotify-tools ]);
 
           shellHook = ''
             export MIX_HOME=$PWD/.nix-mix
@@ -44,6 +52,40 @@
             mix deps.get
           '';
         };
+        packages.default =
+          let
+            version = "0.1.0";
+            src = ./.;
+            mixNixDeps = pkgs.callPackages ./deps.nix { };
+            translatedPlatform =
+              {
+                aarch64-darwin = "macos-arm64";
+                aarch64-linux = "linux-arm64";
+                armv7l-linux = "linux-armv7";
+                x86_64-darwin = "macos-x64";
+                x86_64-linux = "linux-x64";
+              }
+              .${system};
+          in
+          erlangPackages.mixRelease {
+            inherit version src mixNixDeps;
+            pname = "ivhs-broker";
+
+            postBuild = ''
+              mix do deps.loadpaths --no-deps-check, phx.digest
+            '';
+
+            preInstall = ''
+              ln -s ${tailwind}/bin/tailwindcss _build/tailwind-${translatedPlatform}
+              ln -s ${esbuild}/bin/esbuild _build/esbuild-${translatedPlatform}
+
+              ${elixir}/bin/mix do deps.loadpaths --no-deps-check, assets.deploy
+              ${elixir}/bin/mix do deps.loadpaths --no-deps-check, phx.gen.release   
+            '';
+          };
       }
-    );
+    ))
+    // {
+      nixosModules.default = nixosModule;
+    };
 }
