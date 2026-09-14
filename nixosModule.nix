@@ -25,6 +25,7 @@ in
     enable = lib.mkEnableOption "Enable ivhs-broker service";
 
     port = mkIntOption "IVHS Port" defaultBorkerPort;
+    releaseCookie = mkStrOption "IVHS Release cookie" "ivhs-broker-cookie";
     name = mkStrOption "IVHS app name" "ivhs-app";
     user = mkStrOption "IVHS user" "ivhs";
     version = mkStrOption "Broker version (docker image tag)" "latest";
