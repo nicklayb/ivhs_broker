@@ -30,7 +30,7 @@ in
     user = mkStrOption "IVHS user" "ivhs";
     group = mkStrOption "IVHS group" "wheel";
     version = mkStrOption "Broker version (docker image tag)" "latest";
-    database_url = mkStrOption "Postgres database url" "postgresql://postgres:postgres@ivhspostgres/${cfg.postgres.databaseName}";
+    databaseUrl = mkStrOption "Postgres database url" "postgresql://postgres:postgres@postgres/postgres";
     secretKeyBase = mkStrOption "IVHS Secret key base" (
       builtins.hashString "sha256" "ivhs-broker.secret_key_base"
     );
@@ -44,8 +44,8 @@ in
       host = mkStrOption "MQTT Broker hostname" "localhost";
       port = mkIntOption "MQTT Broker port" 1883;
       clientId = mkStrOption "IVHS Broker client id on MQTT broker" "ivhs-player";
-      username = mkStrOption "MQTT Broker username" cfg.mqtt.username;
-      password = mkStrOption "MQTT Broker password" cfg.mqtt.password;
+      username = mkStrOption "MQTT Broker username" "ivhs";
+      password = mkStrOption "MQTT Broker password" "ivhs";
     };
     plex = {
       host = mkStrOption "Plex hostname" "";
@@ -84,7 +84,7 @@ in
         environment = {
           MIX_ENV = "prod";
           PORT = "${toString cfg.port}";
-          DATABASE_URL = cfg.database_url;
+          DATABASE_PATH = cfg.databaseUrl;
           SECRET_KEY_BASE = cfg.secretKeyBase;
           LIVE_VIEW_SALT = cfg.liveViewSalt;
           APP_HOST = cfg.app_host;
