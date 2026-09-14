@@ -28,6 +28,7 @@ in
     releaseCookie = mkStrOption "IVHS Release cookie" "ivhs-broker-cookie";
     name = mkStrOption "IVHS app name" "ivhs-app";
     user = mkStrOption "IVHS user" "ivhs";
+    group = mkStrOption "IVHS group" "wheel";
     version = mkStrOption "Broker version (docker image tag)" "latest";
     database_url = mkStrOption "Postgres database url" "postgresql://postgres:postgres@ivhspostgres/${cfg.postgres.databaseName}";
     secretKeyBase = mkStrOption "IVHS Secret key base" (
@@ -72,7 +73,7 @@ in
         '';
         serviceConfig = {
           User = cfg.user;
-          Group = cfg.user;
+          Group = cfg.group;
           ExecStop = buildScript ''
             ${package}/bin/${releaseName} stop
           '';
