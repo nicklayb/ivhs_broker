@@ -49,7 +49,7 @@ defmodule IvhsBroker.MixProject do
       {:tz, "~> 0.28"},
       {:phoenix_ecto, "~> 4.5"},
       {:mqttx, "~> 0.11.0"},
-      {:deps_nix, "~> 2.5.0"},
+      {:deps_nix, "~> 3.1.1"},
       {:thousand_island, "~> 1.4"}
     ]
   end
