@@ -23,8 +23,4 @@ defmodule IvhsBroker.Application do
     IvhsBrokerWeb.Endpoint.config_change(changed, removed)
     :ok
   end
-
-  defp skip_migrations?() do
-    System.get_env("RELEASE_NAME") != nil
-  end
 end
