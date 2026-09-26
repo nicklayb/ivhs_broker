@@ -57,8 +57,8 @@ defmodule IvhsBroker.MixProject do
 
   defp aliases do
     [
-      "deps.get": ["deps.get", "deps.nix"],
-      "deps.update": ["deps.update", "deps.nix"],
+      "deps.get": maybe_fetch_hashes(["deps.get"]),
+      "deps.update": maybe_fetch_hashes(["deps.update"]),
       setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
@@ -75,5 +75,12 @@ defmodule IvhsBroker.MixProject do
         "gettext.merge priv/gettext"
       ]
     ]
+  end
+  defp maybe_fetch_hashes(tasks) do
+    if Mix.env() == :dev do
+      tasks ++ ["deps.nix"]
+    else
+      tasks
+    end
   end
 end
