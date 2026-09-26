@@ -76,6 +76,7 @@ defmodule IvhsBroker.MixProject do
       ]
     ]
   end
+
   defp maybe_fetch_hashes(tasks) do
     if Mix.env() == :dev do
       tasks ++ ["deps.nix"]
