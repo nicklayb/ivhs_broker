@@ -29,6 +29,7 @@ defmodule IvhsBroker.MixProject do
 
   defp deps do
     [
+      {:castore, "~> 0.1"},
       {:argon2_elixir, "~> 4.0"},
       {:bandit, "~> 1.10.4"},
       {:box, git: "https://github.com/nicklayb/box_ex.git", tag: "0.19.0"},
